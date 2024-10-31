@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="calcu icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="projeto.css" />
+  </head>
+  <body>
+    <script src="projeto.js"></script>
+    <header>
+      <nav>
+        <div class="logo_ul">
+          <a href="projeto.html"> <img src="calcu icon.png" alt="" /></a>
+          <a href="projeto.html"><h4>Finance Calculator</h4></a>
+        </div>
+        <ul>
+          <li>
+            <div class="forms">Fórmulas</div>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <section class="formulas">
+          <div class="juros_simples">1- Juros simples : J = C.i.t</div>
+          <div class="juros_simples_montante">
+            2- Juros simples (montante) : M = C.(1+ i.t)
+          </div>
+          <div class="juros_compsotos">
+            3- Juros compostos : M = C * (1 + i)^t
+          </div>
+          <div class="desconto_simples_comercial">
+            4- Desconto simples (comercial) : A = N*(1 - i*n)
+          </div>
+          <div class="desconto_simples_racional">
+            5- Desconto simples (racional) : A = N / (1 + i*n)
+          </div>
+          <div class="desconto_composto_comercial">
+            6- Desconto composto (comercial): A = N*(1 - i)^n
+          </div>
+          <div class="desconto_composto_racional">
+            7- Desconto composto (racional) : A = N / (1 + i)^n
+          </div>
+        </section>
+
+        <section class="botao_formulas">
+          <div class="btn btn_f1">Juros simples</div>
+          <div class="btn btn_f2">Juros compostos</div>
+          <div class="btn btn_f3">Desconto simples</div>
+          <div class="btn btn_f4">Desconto composto</div>
+        </section>
+
+        <section class="incognitas_juros">
+          <h4>Incógnitas em juros</h4>
+          <div class="tabela_capital">1- C = Capital</div>
+          <div class="tabela_taxa">2- i = Taxa</div>
+          <div class="tabela_tempo">3- Tempo</div>
+          <div class="tabela_montante">M = Montante</div>
+          <div class="tabela_juros">J = Juros</div>
+        </section>
+
+        <div class="botaoescolha1">Juros simples</div>
+        <div class="botaoescolha2">Juros simples (montante)</div>
+        <div class="botaoescolha3">Desconto simples (racional)</div>
+        <div class="botaoescolha4">Desconto simples (comercial)</div>
+        <div class="botaoescolha5">Desconto composto (racional)</div>
+        <div class="botaoescolha6">Desconto composto (comercial)</div>
+
+        <section class="contas">
+          <div class="conta1" id="jurossimples_calc">
+            <h4>Cálculo de Juros Simples</h4>
+            <label
+              ><input type="number" id="capital" placeholder="Capital (C): "
+            /></label>
+            <label
+              ><input
+                type="number"
+                step="0.01"
+                id="taxa"
+                placeholder="Taxa (i): "
+            /></label>
+            <label
+              ><input type="number" id="tempo" placeholder="Tempo (t): "
+            /></label>
+            <button id="calcular1">Calcular</button>
+            <p id="resultado1"></p>
+          </div>
+
+          <div class="conta2" id="jurossimples_montante_calc">
+            <h4>Cálculo de Juros Simples (montante)</h4>
+            <label
+              ><input type="number" id="capital2" placeholder="Capital (C): "
+            /></label>
+            <label
+              ><input
+                type="number"
+                step="0.01"
+                id="taxa2"
+                placeholder="Taxa (i): "
+            /></label>
+            <label
+              ><input type="number" id="tempo2" placeholder="Tempo (t): "
+            /></label>
+            <button id="calcular2">Calcular</button>
+            <p id="resultado2"></p>
+          </div>
+
+          <div class="conta3">
+            <h4>Cálculo de Juros compostos</h4>
+            <label
+              ><input type="number" id="capital3" placeholder="Capital (C): "
+            /></label>
+            <label
+              ><input
+                type="number"
+                step="0.01"
+                id="taxa3"
+                placeholder="Taxa (i): "
+            /></label>
+            <label
+              ><input type="number" id="tempo3" placeholder="Tempo (t): "
+            /></label>
+            <button id="calcular3">Calcular</button>
+            <p id="resultado3"></p>
+          </div>
+
+          <div class="conta4">
+            <h4>Desconto Simples (Racional)</h4>
+            <label
+              ><input type="number" id="atual" placeholder="Atual (A):"
+            /></label>
+            <label
+              ><input type="number" id="nominal" placeholder="Nominal (N):"
+            /></label>
+            <label
+              ><input type="number" id="taxa" placeholder="Taxa (i):"
+            /></label>
+            <label
+              ><input type="number" id="tempo" placeholder="Tempo (n):"
+            /></label>
+            <button id="calcularjurossimplesmontante">Calcular</button>
+            <p id="resultado"></p>
+          </div>
+
+          <div class="conta5">
+            <h4>Desconto Simples (Comercial)</h4>
+            <label
+              ><input type="number" id="atual" placeholder="Atual (A):"
+            /></label>
+            <label
+              ><input type="number" id="nominal" placeholder="Nominal (N):"
+            /></label>
+            <label
+              ><input type="number" id="taxa" placeholder="Taxa (i):"
+            /></label>
+            <label
+              ><input type="number" id="tempo" placeholder="Tempo (n):"
+            /></label>
+            <button id="calcularjurossimplesmontante">Calcular</button>
+            <p id="resultado"></p>
+          </div>
+
+          <div class="conta6">
+            <h4>Desconto Composto (Racional)</h4>
+            <label
+              ><input type="number" id="atual" placeholder="Atual (A):"
+            /></label>
+            <label
+              ><input type="number" id="nominal" placeholder="Nominal (N):"
+            /></label>
+            <label
+              ><input type="number" id="taxa" placeholder="Taxa (i):"
+            /></label>
+            <label
+              ><input type="number" id="tempo" placeholder="Tempo (n):"
+            /></label>
+            <button id="calcularjurossimplesmontante">Calcular</button>
+            <p id="resultado"></p>
+          </div>
+
+          <div class="conta7">
+            <h4>Desconto Composto (Comercial)</h4>
+            <label
+              ><input type="number" id="atual" placeholder="Atual (A):"
+            /></label>
+            <label
+              ><input type="number" id="nominal" placeholder="Nominal (N):"
+            /></label>
+            <label
+              ><input type="number" id="taxa" placeholder="Taxa (i):"
+            /></label>
+            <label
+              ><input type="number" id="tempo" placeholder="Tempo (n):"
+            /></label>
+            <button id="calcularjurossimplesmontante">Calcular</button>
+            <p id="resultado"></p>
+        </section>
+      </main>
+      <footer>
+        <div class="socialicon"><img src="GitHubicon.png" ></div>
+        <a href="https://github.com/Guh698" target="_blank">My github</a>
+        <div class="socialicon"><img src="instaicon.png" ></div>
+        <a href="https://www.instagram.com/guhs_32/" target="_blank">My instagram</a>
+        <div class="socialicon1"><img src="linkedinicon.png" ></div>
+        <a href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/" target="_blank">My linkedin</a>
+      </footer>
+    </header>
+  </body>
+</html>
