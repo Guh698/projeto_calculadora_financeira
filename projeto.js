@@ -97,6 +97,92 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("calcular3")
     .addEventListener("click", calcularJurosCompostos);
 
+  function calcularDescontoSimplesRacional() {
+    let nominal = parseFloat(document.getElementById("nominal").value);
+    let taxa = parseFloat(document.getElementById("taxa4").value) / 100;
+    let tempo = parseFloat(document.getElementById("tempo4").value);
+
+    if (isNaN(nominal) || isNaN(taxa) || isNaN(tempo)) {
+      document.getElementById("resultado4").textContent =
+        "Por favor, insira valores válidos.";
+      return;
+    }
+
+    let atual = nominal / (1 + taxa * tempo);
+
+    document.getElementById(
+      "resultado4"
+    ).textContent = `O seu atual é: R$ ${atual.toFixed(2)}`;
+  }
+
+  document
+    .getElementById("calcular4")
+    .addEventListener("click", calcularDescontoSimplesRacional);
+
+  function calcularDescontoSimplesComercial() {
+    let nominal = parseFloat(document.getElementById("nominal2").value);
+    let taxa = parseFloat(document.getElementById("taxa5").value) / 100;
+    let tempo = parseFloat(document.getElementById("tempo5").value);
+
+    if (isNaN(nominal) || isNaN(taxa) || isNaN(tempo)) {
+      document.getElementById("resultado5").textContent =
+        "Por favor, insira valores válidos.";
+      return;
+    }
+
+    let atual = nominal * (1 - taxa * tempo);
+
+    document.getElementById(
+      "resultado5"
+    ).textContent = `O seu atual é: R$ ${atual.toFixed(2)}`;
+  }
+  document
+    .getElementById("calcular5")
+    .addEventListener("click", calcularDescontoSimplesComercial);
+
+  function calcularDescontoCompostoRacional() {
+    let nominal = parseFloat(document.getElementById("nominal3").value);
+    let taxa = parseFloat(document.getElementById("taxa6").value) / 100;
+    let tempo = parseFloat(document.getElementById("tempo6").value);
+
+    if (isNaN(nominal) || isNaN(taxa) || isNaN(tempo)) {
+      document.getElementById("resultado6").textContent =
+        "Por favor, insira valores válidos.";
+      return;
+    }
+
+    let atual = nominal / (1 + taxa) ** tempo;
+
+    document.getElementById(
+      "resultado6"
+    ).textContent = `O seu atual é: R$ ${atual.toFixed(2)}`;
+  }
+
+  document
+    .getElementById("calcular6")
+    .addEventListener("click", calcularDescontoCompostoRacional);
+
+  function calcularDescontoCompostoComercial() {
+    let nominal = parseFloat(document.getElementById("nominal4").value);
+    let taxa = parseFloat(document.getElementById("taxa7").value) / 100;
+    let tempo = parseFloat(document.getElementById("tempo7").value);
+
+    if (isNaN(nominal) || isNaN(taxa) || isNaN(tempo)) {
+      document.getElementById("resultado7").textContent =
+        "Por favor, insira valores válidos.";
+      return;
+    }
+
+    let atual = nominal * (1 - taxa) ** tempo;
+
+    document.getElementById(
+      "resultado7"
+    ).textContent = `O seu atual é: R$ ${atual.toFixed(2)}`;
+  }
+  document
+    .getElementById("calcular7")
+    .addEventListener("click", calcularDescontoCompostoComercial);
+
   if (forms && tabela && botaoFormulas && incognita) {
     forms.addEventListener("click", function () {
       tabela.classList.toggle("show");
