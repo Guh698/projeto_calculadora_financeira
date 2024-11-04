@@ -6,60 +6,87 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-  /* Estilos para telas menores que 600px */
-  body {
-      font-size: 14px;
-      width: 100vh;
-      height: 100vh;
-      background: rgb(63, 62, 62);
-      font-family: "Poppins", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+@media (max-width: 450px) {
+  header {
+    width: 375px;
   }
-  /* Outros ajustes necessários */
-  .formulas {
-    position: relative;
-    width: 250px;
-    height: auto;
-    padding: 10px 50px;
-    color: #fff;
-    top: 100px;
-    left: 200px;
-    line-height: 35px;
-    background: #000;
-    border-radius: 3px;
-    cursor: default;
-    visibility: hidden;
-    opacity: 0;
+
+  header nav {
+    gap: 25px;
+    font-size: 10px;
   }
-  
-  .formulas::before,
-  .formulas::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    top: -5px;
-    left: -5px;
-    border-radius: 8px;
-    background: linear-gradient(
-      45deg,
-      #795fec,
-      #5907f3,
-      #563cb4,
-      #001aff,
-      #0099ff,
-      #795fec,
-      #5907f3,
-      #0099ff,
-      #563cb4,
-      #001aff
-    );
-    background-size: 200%;
-    animation: border 12s linear infinite;
+
+  .botao_formulas.show {
+    width: 200px;
+    height: 25px;
+    display: block;
+    font: 10px;
+  }
+
+  .formulas.show {
+    width: 325px;
+    top: 40px;
+    padding: 0%;
+    font-size: 10px;
+    left: 22px;
+    text-align: center;
+  }
+
+  .btn {
+    margin-bottom: 20px;
+    text-align: center;
+    left: 85px;
+    font-size: 15px;
+  }
+
+  .botaoescolha1.show {
+    left: 65px;
+    font-size: 15px;
+  }
+  .botaoescolha2.show {
+    left: 65px;
+    bottom: 350px;
+    font-size: 15px;
+  }
+  .botaoescolha3.show {
+    left: 35px;
+    font-size: 15px;
+  }
+  .botaoescolha4.show {
+    left: 35px;
+    bottom: 350px;
+    font-size: 15px;
+  }
+  .botaoescolha5.show {
+    left: 20px;
+    font-size: 15px;
+  }
+  .botaoescolha6.show {
+    left: 20px;
+    bottom: 450px;
+    font-size: 15px;
+  }
+
+  .conta1.show {
+    left: 10px;
+  }
+  .conta2.show {
+    left: 10px;
+  }
+  .conta3.show {
+    left: 10px;
+  }
+  .conta4.show {
+    left: 10px;
+  }
+  .conta5.show {
+    left: 10px;
+  }
+  .conta6.show {
+    left: 10px;
+  }
+  .conta7.show {
+    left: 10px;
   }
 }
 
