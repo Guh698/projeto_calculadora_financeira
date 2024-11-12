@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabela = document.querySelector(".formulas");
   const botaoFormulas = document.querySelector(".botao_formulas");
   const incognita = document.querySelector(".incognitas_juros");
+  const incognitadescontos = document.querySelector(".incognitas_descontos");
+  const incnav = document.querySelector(".incnav");
   const botao1 = document.querySelector(".btn_f1");
   const botao2 = document.querySelector(".btn_f2");
   const botao3 = document.querySelector(".btn_f3");
@@ -187,7 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
     forms.addEventListener("click", function () {
       tabela.classList.toggle("show");
       botaoFormulas.classList.toggle("show");
-      incognita.classList.toggle("show");
+      incognita.classList.remove("show");
+      incognitadescontos.classList.remove("show");
 
       conta1.classList.remove("show");
       conta2.classList.remove("show");
@@ -205,11 +208,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  if (incnav && tabela && botaoFormulas && forms) {
+    incnav.addEventListener("click", function () {
+      // Esconde os elementos principais
+      tabela.classList.remove("show");
+      botaoFormulas.classList.remove("show");
+      conta1.classList.remove("show");
+      conta2.classList.remove("show");
+      conta3.classList.remove("show");
+      conta4.classList.remove("show");
+      conta5.classList.remove("show");
+      conta6.classList.remove("show");
+      conta7.classList.remove("show");
+      botaoescolha1.classList.remove("show");
+      botaoescolha2.classList.remove("show");
+      botaoescolha3.classList.remove("show");
+      botaoescolha4.classList.remove("show");
+      botaoescolha5.classList.remove("show");
+      botaoescolha6.classList.remove("show");
+
+      incognitadescontos.classList.toggle("show");
+      incognita.classList.toggle("show");
+    });
+  }
+
   if (botao1) {
     botao1.addEventListener("click", function () {
       // Esconde os elementos principais
       tabela.classList.remove("show");
       botaoFormulas.classList.remove("show");
+      incognitadescontos.classList.remove("show");
       incognita.classList.remove("show");
 
       //botões de escolha
@@ -242,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tabela.classList.remove("show");
       botaoFormulas.classList.remove("show");
       incognita.classList.remove("show");
+      incognitadescontos.classList.remove("show");
 
       // Exibe o formulário de Juros Simples
       conta3.classList.toggle("show");
@@ -254,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tabela.classList.remove("show");
       botaoFormulas.classList.remove("show");
       incognita.classList.remove("show");
+      incognitadescontos.classList.remove("show");
 
       //botões de escolha
       botaoescolha3.classList.add("show");
@@ -284,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tabela.classList.remove("show");
       botaoFormulas.classList.remove("show");
       incognita.classList.remove("show");
+      incognitadescontos.classList.remove("show");
 
       //botões de escolha
       botaoescolha5.classList.add("show");
