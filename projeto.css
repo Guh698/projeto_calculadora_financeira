@@ -147,6 +147,7 @@
     background: rgb(63, 62, 62);
     font-family: "Poppins", sans-serif;
     display: flex;
+    font-size: 24px;
     align-items: center;
     justify-content: center;
   }
@@ -1284,6 +1285,7 @@
     font-family: "Poppins", sans-serif;
     display: flex;
     align-items: center;
+    font-size: 16px;
     justify-content: center;
   }
 
@@ -1450,6 +1452,7 @@
     gap: 50px; /* Espaço entre os botões */
     justify-content: center; /* Centraliza os botões na tela */
     visibility: hidden;
+    font-size: 20px;
     opacity: 0;
     transition: opacity 0.2s linear;
     margin-top: 20px; /* Espaço entre a tabela de fórmulas e os botões */
@@ -1619,6 +1622,7 @@
     width: 250px;
     height: 40px;
     left: 350px;
+    font-size: 20px;
     background-color: transparent;
     color: #fff;
     border: none;
@@ -1677,6 +1681,7 @@
     width: 250px;
     height: 40px;
     left: 650px;
+    font-size: 20px;
     background-color: transparent;
     color: #fff;
     border: none;
@@ -1733,6 +1738,7 @@
     bottom: 690px;
     text-align: center;
     width: 300px;
+    font-size: 20px;
     height: 40px;
     left: 270px;
     background-color: transparent;
@@ -1791,6 +1797,7 @@
     text-align: center;
     bottom: 729px;
     width: 300px;
+    font-size: 20px;
     height: 40px;
     left: 650px;
     background-color: transparent;
@@ -1851,6 +1858,7 @@
     width: 330px;
     height: 40px;
     left: 270px;
+    font-size: 20px;
     background-color: transparent;
     color: #fff;
     border: none;
@@ -1908,6 +1916,7 @@
     bottom: 838px;
     width: 330px;
     height: 40px;
+    font-size: 20px;
     left: 650px;
     background-color: transparent;
     color: #fff;
