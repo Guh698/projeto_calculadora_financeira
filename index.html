@@ -8,46 +8,56 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link rel="stylesheet" href="global.css">
     <link rel="shortcut icon" href="calcu icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="projeto.css" />
   </head>
+
   <body>
     <script src="projeto.js"></script>
     <header>
-      <nav>
-        <div class="logo_ul">
-          <a href="index.html"> <img src="calcu icon.png" alt="" /></a>
-          <a href="index.html"><h4>Finance Calculator</h4></a>
-        </div>
-        <ul>
-          <li>
-            <div class="forms">Fórmulas</div>
-          </li>
-        </ul>
-        <div class="incnav">Incógnitas</div>
-      </nav>
+      <div class="nav-grid">
+        <nav>
+          <div class="logo_ul">
+            <a href="index.html"> <img src="calcu icon.png" alt="" /></a>
+            <a href="index.html"><h4>Finance Calculator</h4></a>
+          </div>
+          <ul>
+            <li>
+              <div class="forms">Fórmulas</div>
+            </li>
+          </ul>
+          <div class="incnav">Incógnitas</div>
+        </nav>
+      </div>
+
+
       <main>
-        <section class="formulas">
-          <div class="juros_simples">1- Juros simples : J = C.i.t</div>
-          <div class="juros_simples_montante">
-            2- Juros simples (montante) : M = C.(1+ i.t)
-          </div>
-          <div class="juros_compsotos">
-            3- Juros compostos : M = C * (1 + i)^t
-          </div>
-          <div class="desconto_simples_comercial">
-            4- Desconto simples (comercial) : A = N*(1 - i*n)
-          </div>
-          <div class="desconto_simples_racional">
-            5- Desconto simples (racional) : A = N / (1 + i*n)
-          </div>
-          <div class="desconto_composto_comercial">
-            6- Desconto composto (comercial): A = N*(1 - i)^n
-          </div>
-          <div class="desconto_composto_racional">
-            7- Desconto composto (racional) : A = N / (1 + i)^n
-          </div>
-        </section>
+      <div class="conteudo">
+        <div class="grid-formulas">
+          <section class="formulas">
+            <div class="juros_simples">1- Juros simples </div> 
+            <div class="juros_simples_montante">
+              2- Juros simples (montante) 
+            </div>
+            <div class="juros_compsotos">
+              3- Juros compostos
+            </div>
+            <div class="desconto_simples_comercial">
+              4- Desconto simples (comercial)
+            </div>
+            <div class="desconto_simples_racional">
+              5- Desconto simples (racional)
+            </div>
+            <div class="desconto_composto_comercial">
+              6- Desconto composto (comercial)
+            </div>
+            <div class="desconto_composto_racional">
+              7- Desconto composto (racional)
+            </div>
+          </section>
+        </div>
+
 
         <section class="botao_formulas">
           <div class="btn btn_f1">Juros simples</div>
@@ -56,31 +66,40 @@
           <div class="btn btn_f4">Desconto composto</div>
         </section>
 
-        <section class="incognitas_juros">
-          <h4>Incógnitas em juros</h4>
-          <div class="tabela_capital">1- C = Capital</div>
-          <div class="tabela_taxa">2- i = Taxa</div>
-          <div class="tabela_tempo">3- Tempo</div>
-          <div class="tabela_montante">M = Montante</div>
-          <div class="tabela_juros">J = Juros</div>
+        <div class="grid-incognitas_juros">
+          <section class="incognitas_juros">
+            <h4>Incógnitas em juros</h4>
+            <div class="tabela_capital">1- C = Capital</div>
+            <div class="tabela_taxa">2- i = Taxa</div>
+            <div class="tabela_tempo">3- Tempo</div>
+            <div class="tabela_montante">M = Montante</div>
+            <div class="tabela_juros">J = Juros</div>
+          </section>
+        </div>
+
+        <div class="grid-incognitas_descontos">
+          <section class="incognitas_descontos">
+            <h4>Incógnitas em descontos</h4>
+            <div class="tabela_atual">1- A = Atual</div>
+            <div class="tabela_taxa">2- i = Taxa</div>
+            <div class="tabela_tempo">3- n = Tempo</div>
+            <div class="tabela_desconto">D = Desconto</div>
+            <div class="tabela_nominal">N = Nominal</div>
+          </section>
+        </div>
+
+
+        <section class="container-grid">
+          <div class="botaoescolha1">Juros simples</div>
+          <div class="botaoescolha2">Juros simples (montante)</div>
+          <div class="botaoescolha3">Desconto simples (racional)</div>
+          <div class="botaoescolha4">Desconto simples (comercial)</div>
+          <div class="botaoescolha5">Desconto composto (racional)</div>
+          <div class="botaoescolha6">Desconto composto (comercial)</div>
         </section>
 
-        <section class="incognitas_descontos">
-          <h4>Incógnitas em descontos</h4>
-          <div class="tabela_atual">1- A = Atual</div>
-          <div class="tabela_taxa">2- i = Taxa</div>
-          <div class="tabela_tempo">3- n = Tempo</div>
-          <div class="tabela_desconto">D = Desconto</div>
-          <div class="tabela_nominal">N = Nominal</div>
-        </section>
 
-        <div class="botaoescolha1">Juros simples</div>
-        <div class="botaoescolha2">Juros simples (montante)</div>
-        <div class="botaoescolha3">Desconto simples (racional)</div>
-        <div class="botaoescolha4">Desconto simples (comercial)</div>
-        <div class="botaoescolha5">Desconto composto (racional)</div>
-        <div class="botaoescolha6">Desconto composto (comercial)</div>
-
+        <div class="contas-grid">
         <section class="contas">
           <div class="conta1" id="jurossimples_calc">
             <h4>Cálculo de Juros Simples</h4>
@@ -198,6 +217,8 @@
             <button id="calcular7">Calcular</button>
             <p id="resultado7"></p>
         </section>
+        </div>
+      </div>
       </main>
       <footer>
         <div class="socialicon"><img src="GitHubicon.png" ></div>
