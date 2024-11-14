@@ -69,7 +69,9 @@ header .logo_ul {
 }
 
 header .logo_ul img {
-  width: 72px;
+  position: absolute;
+  width: 52px;
+  margin-top: -30px;
   left: 10px;
 }
 
@@ -130,7 +132,6 @@ header nav a {
   position: relative;
   width: 90%;
   height: auto;
-  padding: 10px 50px;
   color: #fff;
   top: 10%;
   left: 10%;
