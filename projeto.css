@@ -377,14 +377,14 @@ header nav a {
 }
 
 .botaoescolha1 {
-  position: relative;
-  bottom: 900px;
+  position: absolute;
+  top: 50%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -437,14 +437,14 @@ header nav a {
 }
 
 .botaoescolha2 {
-  position: relative;
-  bottom: 800px;
+  position: absolute;
+  top: 40%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -497,14 +497,14 @@ header nav a {
 }
 
 .botaoescolha3 {
-  position: relative;
-  bottom: 900px;
+  position: absolute;
+  top: 40%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -557,14 +557,14 @@ header nav a {
 }
 
 .botaoescolha4 {
-  position: relative;
-  bottom: 800px;
+  position: absolute;
+  top: 50%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -617,14 +617,14 @@ header nav a {
 }
 
 .botaoescolha5 {
-  position: relative;
-  bottom: 950px;
+  position: absolute;
+  top: 40%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -677,14 +677,14 @@ header nav a {
 }
 
 .botaoescolha6 {
-  position: relative;
-  bottom: 850px;
+  position: absolute;
+  top: 50%;
   height: 40px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 10%;
   background-color: transparent;
   color: #fff;
   border: none;
