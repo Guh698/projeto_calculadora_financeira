@@ -39,7 +39,7 @@ header::after {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #000);
+  background: linear-gradient(180deg, transparent, #000 0.7);
   z-index: -1;
 }
 
@@ -1187,4 +1187,163 @@ header footer a:hover {
 .socialicon img {
   width: 20px;
   height: 20px;
+}
+
+@media (min-width: 1024px) {
+  header nav {
+    gap: 20px;
+  }
+
+  header nav .logo_ul img {
+    margin-top: 10px;
+    position: relative;
+    width: 72px;
+  }
+
+  .conteudo {
+    width: 100%;
+  }
+
+  .nav-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-formulas {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .formulas {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    height: auto;
+    top: 20%;
+  }
+
+  .botao_formulas {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+  }
+
+  .btn {
+    position: relative;
+    font-weight: bold;
+    top: 320px;
+    width: 80%;
+    height: 50px;
+    left: 50%;
+  }
+
+  .btn:hover {
+    top: calc(320px - (-10px));
+  }
+
+  .container-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .botaoescolha1 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha2 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .botaoescolha3 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha4 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .botaoescolha5 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha6 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .contas-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .conta1,
+  .conta2,
+  .conta3,
+  .conta4,
+  .conta5,
+  .conta6,
+  .conta7 {
+    font-weight: bold;
+    font-size: 20px;
+    width: 40%;
+    height: 40%;
+    left: 30%;
+    top: 30%;
+  }
+
+  .grid-incognitas_juros {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .incognitas_juros {
+    width: 30%;
+    height: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+    top: 25%;
+    left: 15%;
+  }
+
+  .grid-incognitas_descontos {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .incognitas_descontos {
+    width: 30%;
+    height: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    top: 25%;
+    line-height: 45px;
+    left: 55%;
+  }
+}
+
+@media (min-width: 1404px) {
+  .btn {
+    top: 360px;
+  }
+
+  .btn:hover {
+    top: calc(360px - (-10px));
+  }
 }
