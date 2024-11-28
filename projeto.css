@@ -83,6 +83,19 @@ header nav .forms {
   margin-top: 30px;
 }
 
+header nav .tabela_formulas {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s linear;
+  margin-top: 30px;
+}
+
+header nav .tabela_formulas:hover {
+  color: rgb(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
 header nav .incnav {
   text-decoration: none;
   position: relative;
@@ -180,6 +193,63 @@ header nav a {
   opacity: 1;
 }
 
+.grid-formulas2 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.formulas2 {
+  position: relative;
+  width: 90%;
+  height: auto;
+  color: #fff;
+  top: 40%;
+  left: 10%;
+  line-height: 40px;
+  font-weight: bold;
+  background: #000;
+  border-radius: 3px;
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.formulas2::before,
+.formulas2::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.formulas2::after {
+  filter: blur(10px);
+}
+
+.formulas2.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 @keyframes border {
   0%,
   100% {
@@ -193,22 +263,24 @@ header nav a {
 
 .botao_formulas {
   display: grid;
+  position: absolute;
   grid-template-columns: 1fr;
   grid-gap: 30px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.2s linear;
+  top: 40%;
+  width: 100%;
 }
 
 .btn {
   position: relative;
-  top: 80px;
-  width: 80%;
+  width: 60%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15%;
+  left: 20%;
   background-color: transparent;
   color: #fff;
   border: none;
@@ -247,9 +319,6 @@ header nav a {
 
 .btn::after {
   filter: blur(5px);
-}
-.btn:hover {
-  top: 135px;
 }
 
 .botao_formulas.show {
@@ -736,6 +805,186 @@ header nav a {
   opacity: 1;
 }
 
+.botaoescolha7 {
+  position: absolute;
+  top: 40%;
+  height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.botaoescolha7::before,
+.botaoescolha7::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.botaoescolha7::after {
+  filter: blur(5px);
+}
+.botaoescolha7:hover {
+  bottom: 828px;
+}
+
+.botaoescolha7.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.botaoescolha8 {
+  position: absolute;
+  top: 50%;
+  height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.botaoescolha8::before,
+.botaoescolha8::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.botaoescolha8::after {
+  filter: blur(5px);
+}
+.botaoescolha8:hover {
+  bottom: 828px;
+}
+
+.botaoescolha8.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.botaoescolha9 {
+  position: absolute;
+  top: 60%;
+  height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.botaoescolha9::before,
+.botaoescolha9::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.botaoescolha9::after {
+  filter: blur(5px);
+}
+.botaoescolha9:hover {
+  bottom: 828px;
+}
+
+.botaoescolha9.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .contas-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1117,6 +1366,167 @@ header nav a {
   opacity: 1;
 }
 
+.conta8 {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  left: 5%;
+  padding: 10px 50px;
+  color: #fff;
+  top: 25%;
+  padding: 10px 50px;
+  color: #fff;
+  line-height: 41px;
+  background: #000;
+  border-radius: 3px;
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+}
+.conta8::before,
+.conta8::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.conta8::after {
+  filter: blur(10px);
+}
+
+.conta8.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.conta9 {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  left: 5%;
+  padding: 10px 50px;
+  color: #fff;
+  top: 25%;
+  padding: 10px 50px;
+  color: #fff;
+  line-height: 41px;
+  background: #000;
+  border-radius: 3px;
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.conta9::before,
+.conta9::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.conta9::after {
+  filter: blur(10px);
+}
+
+.conta9.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.conta10 {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  left: 5%;
+  padding: 10px 50px;
+  color: #fff;
+  top: 25%;
+  padding: 10px 50px;
+  color: #fff;
+  line-height: 41px;
+  background: #000;
+  border-radius: 3px;
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.conta10::before,
+.conta10::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.conta10::after {
+  filter: blur(10px);
+}
+
+.conta10.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 input {
   padding: 3px 10px;
   border-radius: 20px;
@@ -1214,28 +1624,43 @@ header footer a:hover {
 
   .formulas {
     position: absolute;
-    width: 50%;
-    left: 25%;
+    width: 40%;
+    left: 5%;
     height: auto;
-    top: 20%;
+    top: 30%;
+  }
+
+  .grid-formulas2 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .formulas2 {
+    position: absolute;
+    width: 40%;
+    left: 55%;
+    height: auto;
+    top: 30%;
   }
 
   .botao_formulas {
     grid-template-columns: repeat(5, 1fr);
+    position: absolute;
     gap: 30px;
+    top: 50%;
+    left: 0%;
   }
 
   .btn {
     position: relative;
     font-weight: bold;
-    top: 320px;
+    top: 40%;
     width: 80%;
     height: 50px;
-    left: 50%;
+    left: 10%;
   }
 
   .btn:hover {
-    top: calc(320px - (-10px));
+    top: calc(50% - (-10px));
   }
 
   .container-grid {
@@ -1307,6 +1732,17 @@ header footer a:hover {
     height: 40%;
     left: 30%;
     top: 30%;
+  }
+
+  .conta1 input,
+  .conta2 input,
+  .conta3 input,
+  .conta4 input,
+  .conta5 input,
+  .conta6 input,
+  .conta7 input {
+    padding: 10px;
+    margin-bottom: 10px;
   }
 
   .grid-incognitas_juros {
