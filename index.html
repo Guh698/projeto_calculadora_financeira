@@ -20,13 +20,14 @@
         <nav>
           <div class="logo_ul">
             <a href="index.html"> <img src="calcu icon.png" alt="" /></a>
-            <a href="index.html"><h4>Finance Calculator</h4></a>
           </div>
           <ul>
             <li>
-              <div class="forms">Fórmulas</div>
+              <div class="forms">Cálculos</div>
             </li>
           </ul>
+          <div class="tabela_formulas" id="tabela_formulas">Fórmulas</div>
+
           <div class="incnav">Incógnitas</div>
         </nav>
       </div>
@@ -58,12 +59,36 @@
           </section>
         </div>
 
+        <div class="grid-formulas2">
+          <section class="formulas2">
+            <div class="juros_simples2">1- J = C.i.t </div> 
+            <div class="juros_simples_montante2">
+              2- M = C.(1+ i.t)
+            </div>
+            <div class="juros_compsotos2">
+              3- M = C * (1 + i)^t
+            </div>
+            <div class="desconto_simples_comercial2">
+              4- A = N*(1 - i*n)
+            </div>
+            <div class="desconto_simples_racional2">
+              5- A = N / (1 + i*n)
+            </div>
+            <div class="desconto_composto_comercial2">
+              6- A = N*(1 - i)^n
+            </div>
+            <div class="desconto_composto_racional2">
+              7- A = N / (1 + i)^n
+            </div>
+          </section>
+
 
         <section class="botao_formulas">
           <div class="btn btn_f1">Juros simples</div>
           <div class="btn btn_f2">Juros compostos</div>
           <div class="btn btn_f3">Desconto simples</div>
           <div class="btn btn_f4">Desconto composto</div>
+          <div class="btn btn_f5">Amortização</div>
         </section>
 
         <div class="grid-incognitas_juros">
@@ -96,6 +121,9 @@
           <div class="botaoescolha4">Desconto simples (comercial)</div>
           <div class="botaoescolha5">Desconto composto (racional)</div>
           <div class="botaoescolha6">Desconto composto (comercial)</div>
+          <div class="botaoescolha7">SAC</div>
+          <div class="botaoescolha8">Price</div>
+          <div class="botaoescolha9">Americano</div>
         </section>
 
 
@@ -216,6 +244,54 @@
             /></label>
             <button id="calcular7">Calcular</button>
             <p id="resultado7"></p>
+          </div>
+
+          <div class="conta8">
+            <h4>SAC</h4>
+            <label
+              ><input type="number" id="principal" placeholder="Principal (P):"
+            /></label>
+            <label
+              ><input type="number" id="taxa8" placeholder="Taxa de Juros (i):"
+            /></label>
+            <label
+              ><input type="number" id="parcelas" placeholder="Número de Parcelas (n):"
+            /></label>
+            <button id="calcular8">Calcular</button>
+            <p id="resultado8"></p>
+          </div>
+
+          <div class="conta9">
+            <h4>Price</h4>
+            <label
+              ><input type="number" id="principal2" placeholder="Principal (P):"
+            /></label>
+            <label
+              ><input type="number" id="taxa9" placeholder="Taxa de Juros (i):"
+            /></label>
+            <label
+              ><input type="number" id="parcelas2" placeholder="Número de Parcelas (n):"
+            /></label>
+            <button id="calcular9">Calcular</button>
+            <p id="resultado9"></p>
+          </div>
+          
+
+          <div class="conta10">
+            <h4>Americano</h4>
+            <label
+              ><input type="number" id="principal3" placeholder="Principal (P):"
+            /></label>
+            <label
+              ><input type="number" id="taxa10" placeholder="Taxa de Juros (i):"
+            /></label>
+            <label
+              ><input type="number" id="parcelas3" placeholder="Número de Parcelas (n):"
+            /></label>
+            <button id="calcular10">Calcular</button>
+            <p id="resultado10"></p>
+          </div>
+          
         </section>
         </div>
       </div>
