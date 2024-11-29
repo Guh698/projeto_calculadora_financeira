@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const taxaInput = document.querySelector("#taxa");
   const tempoInput = document.querySelector("#tempo");
   const resultadoSimples = document.querySelector("#resultadoSimples");
+  const obs = document.querySelector(".OBS");
 
   function calcularJurosSimples() {
     let capital = parseFloat(document.getElementById("capital").value);
@@ -209,6 +210,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Saldo devedor inicial
     let saldoDevedor = principal;
 
+    // String para armazenar os detalhes de cada parcela
+    let detalhesParcelas = `
+          <table border="1" style="width: 100%; text-align: left;">
+              <tr>
+                  <th>Parcela</th>
+                  <th>Amortização</th>
+                  <th>Juros</th>
+                  <th>Prestação</th>
+                  <th>Saldo Devedor</th>
+              </tr>
+      `;
+
     for (let i = 1; i <= parcelas; i++) {
       // Cálculo dos juros da parcela
       let juros = saldoDevedor * taxa;
@@ -220,22 +233,47 @@ document.addEventListener("DOMContentLoaded", function () {
       totalJuros += juros;
       totalPrestacoes += prestacao;
 
+      // Atualizar a tabela de detalhes apenas se o número de parcelas for <= 10
+      if (parcelas <= 10) {
+        detalhesParcelas += `
+                <tr>
+                    <td>${i}</td>
+                    <td>R$ ${amortizacaoFixa.toFixed(2)}</td>
+                    <td>R$ ${juros.toFixed(2)}</td>
+                    <td>R$ ${prestacao.toFixed(2)}</td>
+                    <td>R$ ${saldoDevedor.toFixed(2)}</td>
+                </tr>
+            `;
+      }
+
       // Atualizar o saldo devedor
       saldoDevedor -= amortizacaoFixa;
     }
 
-    // Exibir apenas os resultados finais
+    // Fechar a tabela apenas se o número de parcelas for <= 10
+    if (parcelas <= 10) {
+      detalhesParcelas += `</table>`;
+    } else {
+      detalhesParcelas =
+        "<p><em>O detalhamento das parcelas foi omitido devido ao número elevado de parcelas.</em></p>";
+    }
+
+    // Exibir resultados finais
     let resultadoFinal = `
         <strong>Resumo:</strong><br>
         Total Pago: R$ ${totalPrestacoes.toFixed(2)}<br>
         Total de Juros: R$ ${totalJuros.toFixed(2)}<br>
-        Amortização Total: R$ ${principal.toFixed(2)}<br>
-      `;
+        Amortização Total: R$ ${principal.toFixed(2)}<br><br>
+        ${
+          parcelas <= 10
+            ? `<strong>Detalhamento das Parcelas:</strong><br>${detalhesParcelas}`
+            : detalhesParcelas
+        }
+    `;
 
     document.getElementById("resultado8").innerHTML = resultadoFinal;
   }
 
-  // Adicionar evento ao botão
   document.getElementById("calcular8").addEventListener("click", calcularSAC);
 
   function calcularPrice() {
@@ -261,6 +299,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalJuros = 0;
     let saldoDevedor = principal;
 
+    // Construção da tabela de detalhes
+    let detalhesParcelas = `
+        <table border="1" style="width: 100%; text-align: left;">
+            <tr>
+                <th>Parcela</th>
+                <th>Prestação</th>
+                <th>Juros</th>
+                <th>Amortização</th>
+                <th>Saldo Devedor</th>
+            </tr>
+    `;
+
     for (let i = 1; i <= parcelas; i++) {
       // Cálculo dos juros sobre o saldo devedor
       let juros = saldoDevedor * taxa;
@@ -273,23 +323,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Atualizar saldo devedor
       saldoDevedor -= amortizacao;
+
+      // Construir os detalhes das parcelas (apenas se o número de parcelas <= 10)
+      if (parcelas <= 10) {
+        detalhesParcelas += `
+                <tr>
+                    <td>${i}</td>
+                    <td>R$ ${prestacao.toFixed(2)}</td>
+                    <td>R$ ${juros.toFixed(2)}</td>
+                    <td>R$ ${amortizacao.toFixed(2)}</td>
+                    <td>R$ ${saldoDevedor.toFixed(2)}</td>
+                </tr>
+            `;
+      }
+    }
+
+    // Fechar a tabela de detalhes apenas se necessário
+    if (parcelas <= 10) {
+      detalhesParcelas += `</table>`;
+    } else {
+      detalhesParcelas =
+        "<p><em>O detalhamento das parcelas foi omitido devido ao número elevado de parcelas.</em></p>";
     }
 
     // Calcular o total pago (soma de todas as prestações)
     let totalPago = prestacao * parcelas;
 
-    // Exibir apenas os resultados finais
+    // Exibir os resultados finais
     let resultadoFinal = `
-      <strong>Resumo:</strong><br>
-      Total Pago: R$ ${totalPago.toFixed(2)}<br>
-      Total de Juros: R$ ${totalJuros.toFixed(2)}<br>
-      Amortização Total: R$ ${principal.toFixed(2)}<br>
+        <strong>Resumo:</strong><br>
+        Total Pago: R$ ${totalPago.toFixed(2)}<br>
+        Total de Juros: R$ ${totalJuros.toFixed(2)}<br>
+        Amortização Total: R$ ${principal.toFixed(2)}<br><br>
+        ${
+          parcelas <= 10
+            ? `<strong>Detalhamento das Parcelas:</strong><br>${detalhesParcelas}`
+            : detalhesParcelas
+        }
     `;
 
     document.getElementById("resultado9").innerHTML = resultadoFinal;
   }
 
-  // Adicionar evento ao botão
   document.getElementById("calcular9").addEventListener("click", calcularPrice);
 
   function calcularAmericano() {
@@ -315,13 +390,57 @@ document.addEventListener("DOMContentLoaded", function () {
     // Total pago (juros nas parcelas anteriores + última parcela)
     let totalPago = jurosPorParcela * (parcelas - 1) + ultimaParcela;
 
-    // Exibir resultados finais
+    // Construção da tabela de detalhes
+    let detalhesParcelas = `
+        <table border="1" style="width: 100%; text-align: left;">
+            <tr>
+                <th>Parcela</th>
+                <th>Juros</th>
+                <th>Amortização</th>
+                <th>Prestação</th>
+            </tr>
+    `;
+
+    for (let i = 1; i <= parcelas; i++) {
+      if (parcelas <= 10) {
+        // Amortização é zero até a última parcela
+        let amortizacao = i === parcelas ? principal : 0;
+
+        // Prestação é apenas juros nas intermediárias, e juros + principal na última
+        let prestacao = i === parcelas ? ultimaParcela : jurosPorParcela;
+
+        detalhesParcelas += `
+                <tr>
+                    <td>${i}</td>
+                    <td>R$ ${jurosPorParcela.toFixed(2)}</td>
+                    <td>R$ ${amortizacao.toFixed(2)}</td>
+                    <td>R$ ${prestacao.toFixed(2)}</td>
+                </tr>
+            `;
+      }
+    }
+
+    // Fechar a tabela de detalhes apenas se necessário
+    if (parcelas <= 10) {
+      detalhesParcelas += `</table>`;
+    } else {
+      detalhesParcelas =
+        "<p><em>O detalhamento das parcelas foi omitido devido ao número elevado de parcelas.</em></p>";
+    }
+
+    // Exibir os resultados finais
     let resultadoFinal = `
-      Prestação (exceto última): R$ ${jurosPorParcela.toFixed(2)}<br>
-      Última Prestação: R$ ${ultimaParcela.toFixed(2)}<br>
-      Total Pago: R$ ${totalPago.toFixed(2)}<br>
-      Total de Juros: R$ ${totalJuros.toFixed(2)}<br>
-      Amortização Total: R$ ${principal.toFixed(2)}
+        <strong>Resumo:</strong><br>
+        Prestação (exceto última): R$ ${jurosPorParcela.toFixed(2)}<br>
+        Última Prestação: R$ ${ultimaParcela.toFixed(2)}<br>
+        Total Pago: R$ ${totalPago.toFixed(2)}<br>
+        Total de Juros: R$ ${totalJuros.toFixed(2)}<br>
+        Amortização Total: R$ ${principal.toFixed(2)}<br><br>
+        ${
+          parcelas <= 10
+            ? `<strong>Detalhamento das Parcelas:</strong><br>${detalhesParcelas}`
+            : detalhesParcelas
+        }
     `;
 
     document.getElementById("resultado10").innerHTML = resultadoFinal;
@@ -359,6 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
+      obs.classList.remove("show");
     });
   }
 
@@ -389,6 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha9.classList.remove("show");
       incognitadescontos.classList.remove("show");
       incognita.classList.remove("show");
+      obs.classList.remove("show");
     });
   }
 
@@ -417,9 +538,9 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
-
       incognitadescontos.classList.toggle("show");
       incognita.classList.toggle("show");
+      obs.classList.remove("show");
     });
   }
 
@@ -538,6 +659,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
       conta8.classList.toggle("show");
+      obs.classList.toggle("show");
     });
   }
 
@@ -547,6 +669,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
       conta9.classList.toggle("show");
+      obs.classList.toggle("show");
     });
   }
 
@@ -556,6 +679,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
       conta10.classList.toggle("show");
+      obs.classList.toggle("show");
     });
   }
 });
