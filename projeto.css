@@ -136,6 +136,58 @@ header nav a {
   flex-direction: column;
 }
 
+.OBS {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  color: #fff;
+  top: 88%;
+  left: 5%;
+  line-height: 40px;
+  font-weight: bold;
+  background: #000;
+  border-radius: 3px;
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.OBS::before,
+.OBS::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.OBS::after {
+  filter: blur(10px);
+}
+
+.OBS.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .grid-formulas {
   display: grid;
   grid-template-columns: 1fr;
@@ -269,7 +321,7 @@ header nav a {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.2s linear;
-  top: 40%;
+  top: 25%;
   width: 100%;
 }
 
@@ -1527,6 +1579,83 @@ header nav a {
   opacity: 1;
 }
 
+.grid-resultados {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.resultado {
+  position: absolute;
+  width: 100%;
+  top: -60%;
+  left: 0%;
+  height: auto;
+  padding: 10px;
+  color: #fff;
+  margin-top: 10px;
+  line-height: 1.5em;
+  background: #000;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.resultado::before,
+.resultado::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.resultado::after {
+  filter: blur(10px);
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 0.9em;
+}
+
+table th {
+  background-color: #333;
+  color: #fff;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
 input {
   padding: 3px 10px;
   border-radius: 20px;
@@ -1761,7 +1890,7 @@ header footer a:hover {
   .conta8,
   .conta9,
   .conta10 {
-    width: 80%;
+    width: 40%;
     font-size: 16px;
     left: 10%;
     height: 50%;
@@ -1807,6 +1936,47 @@ header footer a:hover {
     top: 25%;
     line-height: 45px;
     left: 55%;
+  }
+
+  .grid-resultados {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .resultado {
+    width: 70%;
+    top: -30%;
+    left: 130%;
+    margin-top: 10px;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td {
+    padding: 3px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+  }
+
+  table th {
+    background-color: #333;
+    color: #fff;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+  }
+
+  .OBS.show {
+    visibility: hidden;
+    opacity: 0;
   }
 }
 
