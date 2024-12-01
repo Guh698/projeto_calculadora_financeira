@@ -136,58 +136,6 @@ header nav a {
   flex-direction: column;
 }
 
-.OBS {
-  position: absolute;
-  width: 90%;
-  height: auto;
-  color: #fff;
-  top: 88%;
-  left: 5%;
-  line-height: 40px;
-  font-weight: bold;
-  background: #000;
-  border-radius: 3px;
-  cursor: default;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.OBS::before,
-.OBS::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  top: -5px;
-  left: -5px;
-  border-radius: 8px;
-  background: linear-gradient(
-    45deg,
-    #795fec,
-    #5907f3,
-    #563cb4,
-    #001aff,
-    #0099ff,
-    #795fec,
-    #5907f3,
-    #0099ff,
-    #563cb4,
-    #001aff
-  );
-  background-size: 200%;
-  animation: border 12s linear infinite;
-}
-
-.OBS::after {
-  filter: blur(10px);
-}
-
-.OBS.show {
-  visibility: visible;
-  opacity: 1;
-}
-
 .grid-formulas {
   display: grid;
   grid-template-columns: 1fr;
@@ -1435,6 +1383,7 @@ header nav a {
   visibility: hidden;
   opacity: 0;
 }
+
 .conta8::before,
 .conta8::after {
   content: "";
@@ -1630,9 +1579,15 @@ header nav a {
   filter: blur(10px);
 }
 
+.resultado.show0 {
+  visibility: hidden;
+  opacity: 0;
+}
+
 table {
   width: 100%;
   max-width: 100%;
+  margin-top: -10%;
   border-collapse: collapse;
 }
 
@@ -1656,6 +1611,13 @@ table {
   white-space: nowrap;
 }
 
+.closewin {
+  font-size: 26px;
+  position: absolute;
+  top: -50%;
+  left: 89%;
+}
+
 input {
   padding: 3px 10px;
   border-radius: 20px;
@@ -1676,15 +1638,6 @@ button {
 }
 button:active {
   border: solid 1px#fff;
-}
-
-#resultado {
-  border-radius: 15px;
-  border: none;
-  background: #000;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
 }
 
 header footer {
@@ -1941,9 +1894,10 @@ header footer a:hover {
   .grid-resultados {
     grid-template-columns: repeat(5, 1fr);
   }
+
   .resultado {
     width: 70%;
-    top: -30%;
+    top: -35%;
     left: 130%;
     margin-top: 10px;
   }
@@ -1972,11 +1926,6 @@ header footer a:hover {
     overflow-x: auto;
     overflow-y: auto;
     white-space: nowrap;
-  }
-
-  .OBS.show {
-    visibility: hidden;
-    opacity: 0;
   }
 }
 
