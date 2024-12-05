@@ -43,6 +43,25 @@ header::after {
   z-index: -1;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
 .nav-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -66,6 +85,7 @@ header .logo_ul {
   display: flex;
   margin-top: 30px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 header .logo_ul img {
@@ -81,6 +101,7 @@ header nav .forms {
   font-weight: bold;
   transition: 0.3s linear;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 header nav .tabela_formulas {
@@ -89,11 +110,11 @@ header nav .tabela_formulas {
   font-weight: bold;
   transition: 0.3s linear;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 header nav .tabela_formulas:hover {
   color: rgb(255, 255, 255, 0.7);
-  cursor: pointer;
 }
 
 header nav .incnav {
@@ -103,6 +124,7 @@ header nav .incnav {
   font-weight: bold;
   transition: 0.3s linear;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 header nav ul li {
@@ -1704,6 +1726,169 @@ header footer a:hover {
     grid-template-columns: repeat(5, 1fr);
   }
 
+  .menu .bi-list {
+    position: absolute;
+    margin-top: -3px;
+    font-size: 30px;
+    left: 95%;
+    color: #fff;
+    transition: 0.2s ease;
+  }
+
+  .bi-list:hover {
+    color: rgb(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+
+  .menu_bar {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: solid #fff 1px;
+    color: #fff;
+    left: 82%;
+    top: 8.5%;
+    width: 15%;
+    height: 0%;
+    transition: 0.2s linear;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .menu_bar.show {
+    height: 15%;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .config {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .config p {
+    margin-left: 5px;
+    font-size: 16px;
+    margin-top: -3px;
+  }
+
+  .menuconfigs {
+    position: absolute;
+    top: 0%;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: #fff 0px 0px 8px 0px;
+    filter: none;
+    z-index: 20;
+  }
+
+  .close_config {
+    font-size: 30px;
+    color: #fff;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 93%;
+    cursor: pointer;
+    transition: 0.1s ease;
+  }
+
+  .close_config:hover {
+    color: rgb(255, 255, 255, 0.7);
+  }
+
+  .menuconfigs.show {
+    width: 80%;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .font_size_config {
+    height: 100%;
+    width: 100%;
+  }
+
+  .seletor_font {
+    position: fixed;
+    top: 10%;
+    left: 10px;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border: 2px solid #ccc;
+    display: flex;
+    z-index: 1000;
+    transition: 0.1s;
+  }
+
+  .seletor_font:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .seletor_font:hover + .content {
+    visibility: visible; /* Torna visível */
+    opacity: 1; /* Totalmente opaca */
+  }
+  .text {
+    cursor: pointer;
+  }
+
+  .seletor {
+    display: flex;
+    margin-left: 20%;
+    cursor: pointer;
+  }
+
+  .tamanhos {
+    display: flex;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .pequeno {
+    position: absolute;
+    opacity: 0;
+  }
+  .medio {
+    position: absolute;
+    opacity: 0;
+  }
+  .padrao {
+    opacity: 1;
+  }
+  .grande {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .content {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    margin-top: 0%;
+    margin-left: 40%;
+    height: 90%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s ease;
+  }
+
+  h1 {
+    font-size: 2em; /* Scales dynamically */
+  }
+  h2 {
+    font-size: 1.5em; /* Scales dynamically */
+  }
+  p {
+    font-size: 1em; /* Scales dynamically */
+  }
+
   .formulas {
     position: absolute;
     width: 40%;
@@ -1727,22 +1912,22 @@ header footer a:hover {
   .botao_formulas {
     grid-template-columns: repeat(5, 1fr);
     position: absolute;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
     gap: 30px;
-    top: 50%;
-    left: 0%;
   }
 
   .btn {
     position: relative;
     font-weight: bold;
-    top: 40%;
-    width: 80%;
-    height: 50px;
-    left: 10%;
+    width: 30%;
+    height: 7%;
+    top: -2%;
+    left: 35%;
   }
-
   .btn:hover {
-    top: calc(50% - (-10px));
+    top: calc(-2% - (-10px));
   }
 
   .container-grid {
@@ -1835,9 +2020,9 @@ header footer a:hover {
     font-weight: bold;
     font-size: 20px;
     width: 40%;
-    height: 40%;
+    height: 50%;
     left: 30%;
-    top: 30%;
+    top: 23%;
   }
 
   .conta8,
@@ -1855,12 +2040,27 @@ header footer a:hover {
   .conta4 input,
   .conta5 input,
   .conta6 input,
-  .conta7 input,
+  .conta7 input {
+    padding: 6px;
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    margin-bottom: 15px;
+  }
+
   .conta8 input,
   .conta9 input,
   .conta10 input {
     padding: 10px;
-    margin-bottom: 10px;
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    margin-bottom: 30px;
+  }
+
+  .calcular {
+    padding: 10px;
+    width: 30%;
   }
 
   .grid-incognitas_juros {
@@ -1927,19 +2127,284 @@ header footer a:hover {
     overflow-y: auto;
     white-space: nowrap;
   }
+
+  .closewin {
+    font-size: 26px;
+    top: -28%;
+    left: 190%;
+  }
 }
 
-@media (min-width: 1404px) {
-  .btn {
-    top: 360px;
+@media (min-width: 1548px) {
+  header nav {
+    gap: 40px;
+    font-size: 26px;
   }
 
-  .btn:hover {
-    top: calc(360px - (-10px));
+  header nav .logo_ul img {
+    margin-top: 10px;
+    position: relative;
+    width: 72px;
+  }
+
+  .conteudo {
+    width: 100%;
+  }
+
+  .nav-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-formulas {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .formulas {
+    position: absolute;
+    width: 40%;
+    left: 5%;
+    height: 50%;
+    top: 20%;
+    line-height: 60px;
+    font-size: 30px;
+  }
+
+  .grid-formulas2 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .formulas2 {
+    position: absolute;
+    width: 40%;
+    left: 55%;
+    height: 50%;
+    top: 20%;
+    line-height: 60px;
+    font-size: 30px;
   }
 
   .botao_formulas {
+    grid-template-columns: repeat(5, 1fr);
     position: absolute;
-    top: 10%;
+    gap: 30px;
+    left: 0%;
+    height: 100%;
+  }
+
+  .btn {
+    font-weight: bold;
+    font-size: 20px;
+    width: 80%;
+    height: 10%;
+    left: 10%;
+    top: 5%;
+  }
+
+  .btn:hover {
+    top: calc(5% - (-10px));
+  }
+
+  .container-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .botaoescolha1 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha2 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .botaoescolha3 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha4 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .botaoescolha5 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 5%;
+  }
+
+  .botaoescolha6 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 55%;
+  }
+
+  .botaoescolha7 {
+    position: absolute;
+    top: 40%;
+    height: 40px;
+    width: 40%;
+    left: 30%;
+  }
+
+  .botaoescolha8 {
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40%;
+    left: 30%;
+  }
+
+  .botaoescolha9 {
+    position: absolute;
+    top: 60%;
+    height: 40px;
+    width: 40%;
+    left: 30%;
+  }
+
+  .contas-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .conta1,
+  .conta2,
+  .conta3,
+  .conta4,
+  .conta5,
+  .conta6,
+  .conta7 {
+    font-weight: bold;
+    font-size: 20px;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+    top: 23%;
+  }
+
+  .conta8,
+  .conta9,
+  .conta10 {
+    width: 40%;
+    font-size: 16px;
+    left: 10%;
+    height: 50%;
+  }
+
+  .conta1 input,
+  .conta2 input,
+  .conta3 input,
+  .conta4 input,
+  .conta5 input,
+  .conta6 input,
+  .conta7 input {
+    padding: 6px;
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    margin-bottom: 15px;
+  }
+
+  .conta8 input,
+  .conta9 input,
+  .conta10 input {
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    margin-bottom: 30px;
+  }
+
+  .calcular {
+    padding: 10px;
+    width: 30%;
+  }
+
+  .grid-incognitas_juros {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .incognitas_juros {
+    width: 30%;
+    height: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+    top: 25%;
+    left: 15%;
+  }
+
+  .grid-incognitas_descontos {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .incognitas_descontos {
+    width: 30%;
+    height: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    top: 25%;
+    line-height: 45px;
+    left: 55%;
+  }
+
+  .grid-resultados {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .resultado {
+    width: 70%;
+    top: -35%;
+    left: 130%;
+    margin-top: 10px;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td {
+    padding: 3px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+  }
+
+  table th {
+    background-color: #333;
+    color: #fff;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+  }
+
+  .closewin {
+    font-size: 32px;
+    top: -28%;
+    left: 193%;
   }
 }
