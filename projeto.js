@@ -43,6 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultado10 = document.getElementById("resultado10");
   const closewins = document.querySelectorAll(".closewin");
   const resultados = document.querySelectorAll(".resultado");
+  const icone_menu = document.getElementById("icone_menu");
+  const menu = document.getElementById("menu");
+  const config_option = document.getElementById("gear_icon");
+  const config_menu = document.getElementById("menuconfigs");
+  const close_config_menu = document.getElementById("close_config");
+  const overlay = document.querySelector(".overlay");
 
   function calcularJurosSimples() {
     let capital = parseFloat(document.getElementById("capital").value);
@@ -643,4 +649,25 @@ document.addEventListener("DOMContentLoaded", function () {
       resultados[index].classList.add("show0");
     });
   });
+
+  if (icone_menu && menu) {
+    icone_menu.addEventListener("click", function () {
+      menu.classList.toggle("show");
+    });
+  }
+
+  if (config_menu && config_option && overlay) {
+    config_option.addEventListener("click", function () {
+      config_menu.classList.add("show");
+      menu.classList.remove("show");
+      overlay.classList.toggle("active");
+    });
+  }
+
+  if (config_menu && close_config_menu && overlay) {
+    close_config_menu.addEventListener("click", function () {
+      config_menu.classList.remove("show");
+      overlay.classList.remove("active");
+    });
+  }
 });
