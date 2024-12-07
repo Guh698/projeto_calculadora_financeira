@@ -7,27 +7,35 @@
 }
 
 body {
+  position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 100vh;
   background: rgb(63, 62, 62);
   font-family: "Poppins", sans-serif;
-  display: flex;
+  display: block;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 header {
-  position: relative;
+  position: fixed;
   width: 100%;
+  min-width: 100%;
   height: 100%;
+  flex: 0 0 auto;
+  height: 100vh;
   overflow: hidden;
   box-shadow: 0px 10px 25px -8px #000;
+  z-index: 10;
 }
 
 header::before {
   content: "";
   position: absolute;
   width: 100%;
+  min-width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 1;
@@ -146,7 +154,7 @@ header nav a {
   margin-left: 10px;
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   transition: 0.3s linear;
 }
@@ -156,6 +164,359 @@ header nav a {
   width: 90%;
   display: flex;
   flex-direction: column;
+}
+
+.menu .bi-list {
+  position: absolute;
+  margin-top: -3px;
+  font-size: 2.25rem;
+  left: 95%;
+  color: #fff;
+  transition: 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.bi-list:hover {
+  color: rgb(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.menu_bar {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: solid #fff 1px;
+  color: #fff;
+  left: 82%;
+  top: 8.5%;
+  width: 15%;
+  height: 0%;
+  transition: 0.2s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu_bar.show {
+  height: 15%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.config {
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.config p {
+  margin-left: 5px;
+  font-size: 1rem;
+  margin-top: -3px;
+}
+
+.menuconfigs {
+  position: absolute;
+  top: 0%;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: #fff 0px 0px 8px 0px;
+  filter: none;
+  z-index: 20;
+}
+
+.close_config {
+  font-size: 2.25rem;
+  color: #fff;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 93%;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.close_config:hover {
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.menuconfigs.show {
+  width: 80%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.font_size_config {
+  height: 100%;
+  width: 100%;
+}
+
+.seletor_font {
+  position: fixed;
+  top: 10%;
+  left: 10px;
+  font-size: 16px;
+  width: 30%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border: 2px solid #ccc;
+  display: flex;
+  z-index: 1000;
+  transition: 0.1s;
+}
+
+.seletor_font:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.seletor_font:hover + .content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.text {
+  cursor: pointer;
+}
+
+.seletor {
+  display: flex;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+.tamanhos {
+  display: flex;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#arrow-left {
+  position: absolute;
+  left: 40%;
+}
+
+#arrow-right {
+  position: absolute;
+  left: 70%;
+}
+
+.pequeno {
+  position: absolute;
+
+  opacity: 0;
+}
+.medio {
+  position: absolute;
+  opacity: 0;
+}
+.padrao {
+  opacity: 1;
+}
+.grande {
+  position: absolute;
+  opacity: 0;
+}
+
+.content {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-top: 0%;
+  margin-left: 40%;
+  height: 90%;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+p {
+  font-size: 1em;
+}
+
+html {
+  font-size: 16px;
+}
+
+html.pequeno {
+  font-size: 12px;
+}
+
+html.medio {
+  font-size: 14px;
+}
+
+html.padrao {
+  font-size: 16px;
+}
+
+html.grande {
+  font-size: 20px;
+}
+
+html.pequeno,
+html.medio,
+html.padrao,
+html.grande {
+  background: none;
+  opacity: 1;
+}
+
+.content.pequeno {
+  font-size: 0.8em;
+}
+.content.medio {
+  font-size: 1.1em;
+}
+.content.padrao {
+  font-size: 1em;
+}
+.content.grande {
+  font-size: 1.5em;
+}
+
+.tamanhos div {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s;
+}
+
+.tamanhos div.active {
+  opacity: 1;
+  position: static;
+}
+
+.theme_config {
+  height: 100%;
+  width: 100%;
+}
+
+.seletor_theme {
+  position: fixed;
+  top: 20%;
+  left: 10px;
+  font-size: 16px;
+  width: 30%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border: 2px solid #ccc;
+  display: flex;
+  z-index: 1000;
+  transition: 0.1s;
+}
+
+.seletor_theme:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content2 {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-top: -50%;
+  margin-left: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.exemplo3 {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-top: -50%;
+  margin-left: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.text2 {
+  margin-left: 7%;
+  cursor: pointer;
+}
+
+.seletor2 {
+  display: flex;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+.temas {
+  display: flex;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#arrow-left2 {
+  position: absolute;
+  left: 40%;
+}
+
+#arrow-right2 {
+  position: absolute;
+  left: 70%;
+}
+
+.temas div {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s;
+}
+
+.temas div.active {
+  opacity: 1;
+  position: static;
+}
+
+.color1 {
+  width: 50%;
+  height: 10%;
+  background: blue;
+}
+.color2 {
+  width: 50%;
+  height: 10%;
+  background: white;
+}
+.color3 {
+  width: 50%;
+  height: 10%;
+  background: #eeeded;
+}
+
+.color4 {
+  width: 50%;
+  height: 10%;
+  background: blue;
+}
+.color5 {
+  width: 50%;
+  height: 10%;
+  background: black;
+}
+.color6 {
+  width: 50%;
+  height: 10%;
+  background: white;
 }
 
 .grid-formulas {
@@ -1606,6 +1967,14 @@ header nav a {
   opacity: 0;
 }
 
+.closewin {
+  position: absolute;
+  font-size: 1.75rem;
+  top: 5%;
+  left: 85%;
+  color: #fff;
+}
+
 table {
   width: 100%;
   max-width: 100%;
@@ -1631,13 +2000,6 @@ table {
   overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;
-}
-
-.closewin {
-  font-size: 26px;
-  position: absolute;
-  top: -50%;
-  left: 89%;
 }
 
 input {
@@ -1683,7 +2045,7 @@ header footer a {
   margin-left: -10px;
   text-decoration: none;
   margin-bottom: 5px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #fff;
   transition: 0.3s ease;
 }
@@ -1726,167 +2088,215 @@ header footer a:hover {
     grid-template-columns: repeat(5, 1fr);
   }
 
+  header::before,
+  header::after {
+    z-index: -1;
+  }
+
+  html.claro {
+    header {
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    header::before {
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+    }
+
+    header::after {
+      width: 100%;
+      height: 100%;
+    }
+
+    header nav {
+      position: absolute;
+      width: 100%;
+      top: 0%;
+      margin-top: 0%;
+      box-shadow: 0px 0px 10px 0px #000;
+      background-color: blue;
+    }
+
+    header nav img {
+      position: relative;
+      margin-top: -35%;
+      width: 60px;
+    }
+
+    header nav .forms,
+    .incnav,
+    .tabela_formulas {
+      color: #000;
+    }
+
+    .forms {
+      position: relative;
+      margin-top: 0%;
+      left: -90%;
+    }
+
+    .forms:hover {
+      color: white;
+    }
+
+    .incnav {
+      position: relative;
+      left: -36%;
+      margin-top: 0%;
+    }
+
+    .incnav:hover {
+      color: white;
+    }
+
+    .tabela_formulas {
+      position: relative;
+      left: -20%;
+      margin-top: 0%;
+    }
+
+    .tabela_formulas:hover {
+      color: white;
+    }
+
+    .formulas {
+      background: #eeeded;
+      color: #000;
+    }
+
+    .formulas2 {
+      background: #eeeded;
+      color: #000;
+    }
+
+    .incognitas_juros {
+      background: #eeeded;
+      color: #000;
+    }
+
+    .incognitas_descontos {
+      background: #eeeded;
+      color: #000;
+    }
+
+    .conta1,
+    .conta2,
+    .conta3,
+    .conta4,
+    .conta4,
+    .conta6,
+    .conta7,
+    .conta8,
+    .conta9,
+    .conta10 {
+      background: #eeeded;
+      color: #000;
+    }
+
+    .conta1 input,
+    .conta2 input,
+    .conta3 input,
+    .conta4 input,
+    .conta4 input,
+    .conta6 input,
+    .conta7 input,
+    .conta8 input,
+    .conta9 input,
+    .conta10 input {
+      border-radius: 8px;
+      border: solid 1px black;
+      padding: 10px;
+      color: #000;
+      background: #fff;
+    }
+
+    .conta1 button,
+    .conta2 button,
+    .conta3 button,
+    .conta4 button,
+    .conta4 button,
+    .conta6 button,
+    .conta7 button,
+    .conta8 button,
+    .conta9 button,
+    .conta10 button {
+      border: solid 1px black;
+      color: #000;
+      background: #fff;
+    }
+
+    .menu .bi-list {
+      transition: 0.2s ease;
+      top: 20%;
+      opacity: 1;
+      visibility: visible;
+      color: #000;
+    }
+
+    .bi-list:hover {
+      color: #fff;
+    }
+
+    .menu_bar {
+      top: 80%;
+      border: solid 1px #000;
+      color: #000;
+    }
+
+    .menu_bar.show {
+      height: 150%;
+    }
+
+    .menuconfigs.show {
+      width: 80%;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .seletor_theme:hover + .content2 {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .resultado {
+      color: #000;
+      top: -30%;
+      background: #fff;
+    }
+
+    .resultado .closewin {
+      color: #000;
+    }
+
+    header footer {
+      background-color: #fff;
+    }
+
+    header footer a {
+      color: #000;
+    }
+  }
+
+  html.escuro {
+    .seletor_theme:hover ~ .exemplo3 {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   .menu .bi-list {
-    position: absolute;
-    margin-top: -3px;
-    font-size: 30px;
-    left: 95%;
-    color: #fff;
     transition: 0.2s ease;
+    top: 5%;
+    opacity: 1;
+    visibility: visible;
+    color: #fff;
   }
 
   .bi-list:hover {
     color: rgb(255, 255, 255, 0.7);
-    cursor: pointer;
-  }
-
-  .menu_bar {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    border: solid #fff 1px;
-    color: #fff;
-    left: 82%;
-    top: 8.5%;
-    width: 15%;
-    height: 0%;
-    transition: 0.2s linear;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .menu_bar.show {
-    height: 15%;
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .config {
-    position: relative;
-    display: flex;
-    margin-top: 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  .config p {
-    margin-left: 5px;
-    font-size: 16px;
-    margin-top: -3px;
-  }
-
-  .menuconfigs {
-    position: absolute;
-    top: 0%;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.3);
-    transition: 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: #fff 0px 0px 8px 0px;
-    filter: none;
-    z-index: 20;
-  }
-
-  .close_config {
-    font-size: 30px;
-    color: #fff;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 93%;
-    cursor: pointer;
-    transition: 0.1s ease;
-  }
-
-  .close_config:hover {
-    color: rgb(255, 255, 255, 0.7);
-  }
-
-  .menuconfigs.show {
-    width: 80%;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .font_size_config {
-    height: 100%;
-    width: 100%;
-  }
-
-  .seletor_font {
-    position: fixed;
-    top: 10%;
-    left: 10px;
-    width: 30%;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border: 2px solid #ccc;
-    display: flex;
-    z-index: 1000;
-    transition: 0.1s;
-  }
-
-  .seletor_font:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  .seletor_font:hover + .content {
-    visibility: visible; /* Torna visível */
-    opacity: 1; /* Totalmente opaca */
-  }
-  .text {
-    cursor: pointer;
-  }
-
-  .seletor {
-    display: flex;
-    margin-left: 20%;
-    cursor: pointer;
-  }
-
-  .tamanhos {
-    display: flex;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-
-  .pequeno {
-    position: absolute;
-    opacity: 0;
-  }
-  .medio {
-    position: absolute;
-    opacity: 0;
-  }
-  .padrao {
-    opacity: 1;
-  }
-  .grande {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .content {
-    position: relative;
-    width: 60%;
-    height: 100%;
-    margin-top: 0%;
-    margin-left: 40%;
-    height: 90%;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s ease;
-  }
-
-  h1 {
-    font-size: 2em; /* Scales dynamically */
-  }
-  h2 {
-    font-size: 1.5em; /* Scales dynamically */
-  }
-  p {
-    font-size: 1em; /* Scales dynamically */
   }
 
   .formulas {
@@ -1925,9 +2335,17 @@ header footer a:hover {
     height: 7%;
     top: -2%;
     left: 35%;
+    transition: 0.3 ease;
   }
+
   .btn:hover {
     top: calc(-2% - (-10px));
+  }
+
+  .btn.show {
+    visibility: visible;
+    opacity: 1;
+    height: 7%;
   }
 
   .container-grid {
@@ -2018,7 +2436,7 @@ header footer a:hover {
   .conta6,
   .conta7 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 40%;
     height: 50%;
     left: 30%;
@@ -2029,7 +2447,7 @@ header footer a:hover {
   .conta9,
   .conta10 {
     width: 40%;
-    font-size: 16px;
+    font-size: 1rem;
     left: 10%;
     height: 50%;
   }
@@ -2070,7 +2488,7 @@ header footer a:hover {
   .incognitas_juros {
     width: 30%;
     height: 45%;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     line-height: 45px;
     top: 25%;
@@ -2084,7 +2502,7 @@ header footer a:hover {
   .incognitas_descontos {
     width: 30%;
     height: 45%;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     top: 25%;
     line-height: 45px;
@@ -2099,6 +2517,7 @@ header footer a:hover {
     width: 70%;
     top: -35%;
     left: 130%;
+    font-size: 16px;
     margin-top: 10px;
   }
 
@@ -2113,7 +2532,7 @@ header footer a:hover {
     padding: 3px;
     text-align: left;
     border: 1px solid #ddd;
-    font-size: 0.9em;
+    font-size: 16px;
   }
 
   table th {
@@ -2129,16 +2548,17 @@ header footer a:hover {
   }
 
   .closewin {
-    font-size: 26px;
-    top: -28%;
-    left: 190%;
+    font-size: 1.75rem;
+    top: 3%;
+    left: 85%;
+    color: #fff;
   }
 }
 
 @media (min-width: 1548px) {
   header nav {
     gap: 40px;
-    font-size: 26px;
+    font-size: 1.75rem;
   }
 
   header nav .logo_ul img {
@@ -2166,7 +2586,7 @@ header footer a:hover {
     height: 50%;
     top: 20%;
     line-height: 60px;
-    font-size: 30px;
+    font-size: 2.25rem;
   }
 
   .grid-formulas2 {
@@ -2180,7 +2600,7 @@ header footer a:hover {
     height: 50%;
     top: 20%;
     line-height: 60px;
-    font-size: 30px;
+    font-size: 2.25rem;
   }
 
   .botao_formulas {
@@ -2193,7 +2613,7 @@ header footer a:hover {
 
   .btn {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 80%;
     height: 10%;
     left: 10%;
@@ -2292,7 +2712,7 @@ header footer a:hover {
   .conta6,
   .conta7 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 40%;
     height: 50%;
     left: 30%;
@@ -2303,7 +2723,7 @@ header footer a:hover {
   .conta9,
   .conta10 {
     width: 40%;
-    font-size: 16px;
+    font-size: 1rem;
     left: 10%;
     height: 50%;
   }
@@ -2344,7 +2764,7 @@ header footer a:hover {
   .incognitas_juros {
     width: 30%;
     height: 45%;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     line-height: 45px;
     top: 25%;
@@ -2358,7 +2778,7 @@ header footer a:hover {
   .incognitas_descontos {
     width: 30%;
     height: 45%;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     top: 25%;
     line-height: 45px;
@@ -2403,7 +2823,7 @@ header footer a:hover {
   }
 
   .closewin {
-    font-size: 32px;
+    font-size: 2.5rem;
     top: -28%;
     left: 193%;
   }
