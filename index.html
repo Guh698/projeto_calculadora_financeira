@@ -46,26 +46,49 @@
         <div class="menuconfigs" id="menuconfigs">
           <div class="close_config" id="close_config"><i class="bi bi-x"></i></div>
           
-            <div class="font_size_config">
-              <div class="seletor_font">  
+          <div class="font_size_config">
+            <div class="seletor_font">
                 <div class="text">Tamanho da fonte</div>
                 <div class="seletor">
-                  <i class="bi bi-arrow-left-square-fill"></i>
-                  <section class="tamanhos">
-                    <div class="pequeno"><p>PEQUENO</p></div>
-                    <div class="medio"><p>MÉDIO</p></div>
-                    <div class="padrao"><p>PADRÃO</p></div>
-                    <div class="grande"><p>GRANDE</p></div>
-                  </section>
-                  <i class="bi bi-arrow-right-square-fill"></i>
+                    <i class="bi bi-arrow-left-square-fill" id="arrow-left"></i>
+                    <section class="tamanhos">
+                        <div class="pequeno" data-size="pequeno"><p>PEQUENO</p></div>
+                        <div class="medio" data-size="medio"><p>MÉDIO</p></div>
+                        <div class="padrao" data-size="padrao"><p>PADRÃO</p></div>
+                        <div class="grande" data-size="grande"><p>GRANDE</p></div>
+                    </section>
+                    <i class="bi bi-arrow-right-square-fill" id="arrow-right"></i>
                 </div>
-              </div>
-              <div class="content">
-                  <h1>Heading 1</h1>
-                  <p>This is a sample paragraph with default font sizes. Adjust the slider above to see the effect.</p>
-                  <h2>Heading 2</h2>
-                  <p>Another paragraph for testing the font size changes.</p>
-              </div>
+            </div>
+            <div class="content">
+                <h1>Título 1</h1>
+                <p>Este é um parágrafo de exemplo para fonte padrão. Ajuste para conferir as diferenças</p>
+                <h2>Título 2</h2>
+                <p>Outro parágrafo para testar as mudanças nos tamanhos de fonteS.</p>
+            </div>
+          </div>   
+          <div class="theme_config">
+            <div class="seletor_theme">
+                <div class="text2">Escolher Tema</div>
+                <div class="seletor2">
+                    <i class="bi bi-arrow-left-square-fill" id="arrow-left2"></i>
+                    <section class="temas">
+                        <div class="claro" data-theme="claro"><p>CLARO</p></div>
+                        <div class="escuro" data-theme="escuro"><p>ESCURO</p></div>
+                    </section>
+                    <i class="bi bi-arrow-right-square-fill" id="arrow-right2"></i>
+                </div>
+            </div>  
+            <div class="content2">
+              <div class="color1"></div>
+              <div class="color2"></div>
+              <div class="color3"></div>
+            </div>
+            <div class="exemplo3">
+              <div class="color4"></div>
+              <div class="color5"></div>
+              <div class="color6"></div>
+            </div>  
           </div>
         </div>
 
@@ -293,8 +316,10 @@
             /></label>
             <button class="calcular" id="calcular8">Calcular</button>
             <div class="grid-resultados">
-              <div class="resultado"><p id="resultado8"></p></div>
-              <div class="closewin"> <i class="bi bi-x"></i></div>
+              <div class="resultado"><p id="resultado8"></p>
+                <div class="closewin"> <i class="bi bi-x"></i></div>
+              </div>
+              
             </div>
           </div>
 
@@ -311,8 +336,10 @@
             /></label>
             <button class="calcular" id="calcular9">Calcular</button>
             <div class="grid-resultados">
-              <div class="resultado"><p id="resultado9"></p></div>
-              <div class="closewin"> <i class="bi bi-x"></i></div>
+              <div class="resultado"><p id="resultado9"></p>
+                <div class="closewin"> <i class="bi bi-x"></i></div>
+              </div>
+              
             </div> 
           </div>
           
@@ -330,8 +357,10 @@
             /></label>
             <button class="calcular" id="calcular10">Calcular</button>
             <div class="grid-resultados">
-              <div class="resultado"><p id="resultado10"></p></div>
-              <div class="closewin"> <i class="bi bi-x"></i></div>
+              <div class="resultado"><p id="resultado10"></p>
+                <div class="closewin"> <i class="bi bi-x"></i></div>
+              </div>
+              
             </div>
           </div>
           
