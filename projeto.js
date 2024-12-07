@@ -49,6 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const config_menu = document.getElementById("menuconfigs");
   const close_config_menu = document.getElementById("close_config");
   const overlay = document.querySelector(".overlay");
+  const arrowLeft = document.querySelector("#arrow-left");
+  const arrowRight = document.querySelector("#arrow-right");
+  const sizes = Array.from(document.querySelectorAll(".tamanhos div"));
+  const content = document.querySelector(".content");
+  const arrowLeft2 = document.getElementById("arrow-left2");
+  const arrowRight2 = document.getElementById("arrow-right2");
+  const temas = document.querySelectorAll(".temas div");
+  let currentThemeIndex = 0;
 
   function calcularJurosSimples() {
     let capital = parseFloat(document.getElementById("capital").value);
@@ -670,4 +678,60 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.classList.remove("active");
     });
   }
+
+  let currentIndex = sizes.findIndex((size) =>
+    size.classList.contains("padrao")
+  );
+
+  function updateFontSize() {
+    document.documentElement.classList.remove(
+      "pequeno",
+      "medio",
+      "padrao",
+      "grande"
+    );
+
+    const sizeName = sizes[currentIndex].getAttribute("data-size");
+    document.documentElement.classList.add(sizeName);
+
+    sizes.forEach((size) => size.classList.remove("active"));
+    sizes[currentIndex].classList.add("active");
+  }
+
+  arrowLeft.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + sizes.length) % sizes.length;
+    updateFontSize();
+  });
+
+  arrowRight.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % sizes.length;
+    updateFontSize();
+  });
+
+  updateFontSize();
+
+  function updateTheme() {
+    document.documentElement.className = "";
+    document.documentElement.classList.remove("claro", "escuro");
+
+    // Adiciona classe do tema 
+    const themeName = temas[currentThemeIndex].getAttribute("data-theme");
+    document.documentElement.classList.add(themeName);
+
+    // Atualiza classe ativa do tema
+    temas.forEach((theme) => theme.classList.remove("active"));
+    temas[currentThemeIndex].classList.add("active");
+  }
+
+  arrowLeft2.addEventListener("click", () => {
+    currentThemeIndex = (currentThemeIndex - 1 + temas.length) % temas.length;
+    updateTheme();
+  });
+
+  arrowRight2.addEventListener("click", () => {
+    currentThemeIndex = (currentThemeIndex + 1) % temas.length;
+    updateTheme();
+  });
+
+  updateTheme();
 });
