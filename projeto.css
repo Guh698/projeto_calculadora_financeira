@@ -10,7 +10,6 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 100vh;
   background: rgb(63, 62, 62);
   font-family: "Poppins", sans-serif;
   display: block;
@@ -24,8 +23,6 @@ header {
   width: 100%;
   min-width: 100%;
   height: 100%;
-  flex: 0 0 auto;
-  height: 100vh;
   overflow: hidden;
   box-shadow: 0px 10px 25px -8px #000;
   z-index: 10;
@@ -40,6 +37,7 @@ header::before {
   background-color: #000;
   opacity: 1;
   z-index: -1;
+  transition: 0.5s ease;
 }
 
 header::after {
@@ -203,19 +201,28 @@ header nav a {
   opacity: 1;
 }
 
+.bi-gear {
+  margin-left: 10px;
+}
+
 .config {
+  width: 100%;
   position: relative;
   display: flex;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 0px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.2s ease;
 }
 
 .config p {
   margin-left: 5px;
   font-size: 1rem;
-  margin-top: -3px;
+}
+
+.config:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .menuconfigs {
@@ -265,15 +272,38 @@ header nav a {
   width: 30%;
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   display: flex;
   z-index: 1000;
-  transition: 0.1s;
+  transition: 0.1s ease;
+}
+
+#setaho {
+  visibility: hidden;
+  opacity: 0;
+  margin-left: -3%;
+  transition: 0.1s linear;
 }
 
 .seletor_font:hover {
   background: rgba(255, 255, 255, 0.3);
+
+  #setaho {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #arrow-left {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #arrow-right {
+    visibility: visible;
+    opacity: 1;
+  }
 }
+
 .seletor_font:hover + .content {
   visibility: visible;
   opacity: 1;
@@ -290,19 +320,43 @@ header nav a {
 }
 
 .tamanhos {
+  position: fixed;
+  margin-left: 2%;
   display: flex;
-  margin-left: 2px;
-  margin-right: 2px;
 }
 
 #arrow-left {
   position: absolute;
-  left: 40%;
+  left: 50%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.1s ease;
+  font-size: 20px;
+}
+
+#arrow-left:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#arrow-left:active {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #arrow-right {
   position: absolute;
-  left: 70%;
+  left: 90%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.1s ease;
+  font-size: 20px;
+}
+
+#arrow-right:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#arrow-right:active {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .pequeno {
@@ -409,14 +463,62 @@ html.grande {
   width: 30%;
   background: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   display: flex;
   z-index: 1000;
-  transition: 0.1s;
+  transition: 0.1s ease-in;
+}
+
+#arrow-left2 {
+  position: absolute;
+  left: 50%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.1s ease;
+  font-size: 20px;
+}
+
+#arrow-left2:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#arrow-left2:active {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#arrow-right2 {
+  position: absolute;
+  left: 90%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.1s ease;
+  font-size: 20px;
+}
+
+#arrow-right2:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#arrow-right2:active {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .seletor_theme:hover {
   background: rgba(255, 255, 255, 0.3);
+  #setaho {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #arrow-left2 {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #arrow-right2 {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .content2 {
@@ -424,7 +526,7 @@ html.grande {
   width: 60%;
   height: 100%;
   margin-top: -50%;
-  margin-left: 50%;
+  margin-left: 55%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -439,7 +541,7 @@ html.grande {
   width: 60%;
   height: 100%;
   margin-top: -50%;
-  margin-left: 50%;
+  margin-left: 55%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -450,7 +552,6 @@ html.grande {
 }
 
 .text2 {
-  margin-left: 7%;
   cursor: pointer;
 }
 
@@ -461,19 +562,9 @@ html.grande {
 }
 
 .temas {
+  position: fixed;
   display: flex;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-#arrow-left2 {
-  position: absolute;
-  left: 40%;
-}
-
-#arrow-right2 {
-  position: absolute;
-  left: 70%;
+  margin-left: 4%;
 }
 
 .temas div {
@@ -2177,6 +2268,10 @@ header footer a:hover {
       color: #000;
     }
 
+    .config:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
     .incognitas_descontos {
       background: #eeeded;
       color: #000;
@@ -2293,6 +2388,10 @@ header footer a:hover {
     opacity: 1;
     visibility: visible;
     color: #fff;
+  }
+
+  .menu_bar {
+    top: 13%;
   }
 
   .bi-list:hover {
