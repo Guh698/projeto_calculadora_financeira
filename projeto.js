@@ -714,7 +714,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.className = "";
     document.documentElement.classList.remove("claro", "escuro");
 
-    // Adiciona classe do tema 
+    // Adiciona classe do tema
     const themeName = temas[currentThemeIndex].getAttribute("data-theme");
     document.documentElement.classList.add(themeName);
 
