@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Financial Calculator</title>
+    <title>Finance Calculator</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -47,9 +47,9 @@
           <div class="close_config" id="close_config"><i class="bi bi-x"></i></div>
           
           <div class="font_size_config">
-            <div class="seletor_font">
+            <div class="seletor_font" id="seletor1">
               <i class="bi bi-caret-right-fill" id="setaho"></i>
-                <div class="text">Tamanho da fonte</div>
+                <div class="text" >Tamanho da fonte</div>
                 <div class="seletor">
                     <i class="bi bi-caret-left-fill" id="arrow-left"></i>
                     <section class="tamanhos">
@@ -66,12 +66,14 @@
                 <p>Este é um parágrafo de exemplo para fonte padrão. Ajuste para conferir as diferenças</p>
                 <h2>Título 2</h2>
                 <p>Outro parágrafo para testar as mudanças nos tamanhos de fontes.</p>
+                
+
             </div>
           </div>   
           <div class="theme_config">
-            <div class="seletor_theme">
+            <div class="seletor_theme" id="seletor2">
               <i class="bi bi-caret-right-fill" id="setaho"></i>
-                <div class="text2">Escolher Tema</div>
+                <div class="text2" id="seletore2">Escolher Tema</div>
                 <div class="seletor2">
                   <i class="bi bi-caret-left-fill" id="arrow-left2"></i>
                     
@@ -92,6 +94,25 @@
               <div class="color5"></div>
               <div class="color6"></div>
             </div>  
+          </div>
+
+          <div class="sound_config">
+            <div class="seletor_sound" id="seletor3">
+              <i class="bi bi-caret-right-fill" id="setaho"></i>
+              <div class="text3">Sons e efeitos</div>
+              <div class="seletor3">
+                <i class="bi bi-caret-left-fill" id="arrow-left3"></i>
+                <section class="volumes">
+                  <div class="ativar" data-sound="ativar"><p>ATIVADO</p></div>
+                  <div class="desativar" data-sound="desativar"><p>DESATIVADO</p></div>
+                </section>
+                <i class="bi bi-caret-right-fill" id="arrow-right3"></i>
+              </div>
+            </div>
+            <div class="content3">
+                <i class="bi bi-volume-up-fill" id="ativado"></i>
+                <i class="bi bi-volume-mute-fill" id="desativado"></i>
+            </div>
           </div>
         </div>
 
