@@ -55,8 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const content = document.querySelector(".content");
   const arrowLeft2 = document.getElementById("arrow-left2");
   const arrowRight2 = document.getElementById("arrow-right2");
+  const arrowLeft3 = document.querySelector("#arrow-left3");
+  const arrowRight3 = document.querySelector("#arrow-right3");
   const temas = document.querySelectorAll(".temas div");
+  const volumes = document.querySelectorAll(".volumes div");
   let currentThemeIndex = 0;
+  let currentSoundIndex = 0;
+
+  const clickSound = new Audio("click.wav");
+  const hoverSound = new Audio("hover.wav");
 
   function calcularJurosSimples() {
     let capital = parseFloat(document.getElementById("capital").value);
@@ -714,11 +721,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.className = "";
     document.documentElement.classList.remove("claro", "escuro");
 
-    // Adiciona classe do tema
     const themeName = temas[currentThemeIndex].getAttribute("data-theme");
     document.documentElement.classList.add(themeName);
 
-    // Atualiza classe ativa do tema
     temas.forEach((theme) => theme.classList.remove("active"));
     temas[currentThemeIndex].classList.add("active");
   }
@@ -734,4 +739,84 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updateTheme();
+
+  function updateSounds() {
+    const SoundName = volumes[currentSoundIndex].getAttribute("data-sound");
+    isSoundEnabled = SoundName === "ativar";
+
+    volumes.forEach((sound) => sound.classList.remove("active"));
+    volumes[currentSoundIndex].classList.add("active");
+
+    const ativadoIcon = document.getElementById("ativado");
+    const desativadoIcon = document.getElementById("desativado");
+
+    if (isSoundEnabled) {
+      ativadoIcon.classList.add("show");
+      desativadoIcon.classList.remove("show");
+    } else {
+      ativadoIcon.classList.remove("show");
+      desativadoIcon.classList.add("show");
+    }
+
+    hoverSound.muted = !isSoundEnabled;
+    clickSound.muted = !isSoundEnabled;
+  }
+
+  arrowLeft3.addEventListener("click", () => {
+    currentSoundIndex =
+      (currentSoundIndex - 1 + volumes.length) % volumes.length;
+    updateSounds();
+  });
+
+  arrowRight3.addEventListener("click", () => {
+    currentSoundIndex = (currentSoundIndex + 1) % volumes.length;
+    updateSounds();
+  });
+
+  updateSounds();
+
+  document.getElementById("seletor1").addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+
+  document.getElementById("seletor2").addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+
+  document.getElementById("seletor3").addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+
+  arrowLeft.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+
+  arrowLeft2.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+
+  arrowLeft3.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+
+  arrowRight.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+
+  arrowRight2.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+
+  arrowRight3.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
 });
