@@ -2197,12 +2197,79 @@ html.grande {
   opacity: 0;
 }
 
+.resultado20,
+.resultado21,
+.resultado22 {
+  position: absolute;
+  width: 100%;
+  top: -60%;
+  left: 0%;
+  height: auto;
+  padding: 10px;
+  color: #fff;
+  margin-top: 10px;
+  line-height: 1.5em;
+  background: #000;
+  border-radius: 3px;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resultado20::before,
+.resultado21::before,
+.resultado22::before,
+.resultado20::after,
+.resultado21::after,
+.resultado22::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  top: -5px;
+  left: -5px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    #795fec,
+    #5907f3,
+    #563cb4,
+    #001aff,
+    #0099ff,
+    #795fec,
+    #5907f3,
+    #0099ff,
+    #563cb4,
+    #001aff
+  );
+  background-size: 200%;
+  animation: border 12s linear infinite;
+}
+
+.resultado::after {
+  filter: blur(10px);
+}
+
+.resultado20.show,
+.resultado21.show,
+.resultado22.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .closewin {
   position: absolute;
   font-size: 1.75rem;
   top: 5%;
   left: 85%;
   color: #fff;
+  transition: 0.1s ease;
+}
+
+.closewin:hover {
+  font-size: 1.74rem;
+  color: rgba(255, 255, 255, 0.692);
 }
 
 table {
@@ -2321,6 +2388,14 @@ header footer a:hover {
   header::before,
   header::after {
     z-index: -1;
+  }
+
+  .resultado20,
+  .resultado21,
+  .resultado22 {
+    left: 110%;
+    width: 70%;
+    top: -38%;
   }
 
   html.claro {
@@ -2495,13 +2570,16 @@ header footer a:hover {
       opacity: 1;
     }
 
+    .resultado20,
+    .resultado21,
+    .resultado22,
     .resultado {
       color: #000;
       top: -30%;
       background: #fff;
     }
 
-    .resultado .closewin {
+    .closewin {
       color: #000;
     }
 
