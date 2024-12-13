@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultado8 = document.getElementById("resultado8");
   const resultado9 = document.getElementById("resultado9");
   const resultado10 = document.getElementById("resultado10");
-  const closewins = document.querySelectorAll(".closewin");
   const resultados = document.querySelectorAll(".resultado");
   const icone_menu = document.getElementById("icone_menu");
   const menu = document.getElementById("menu");
@@ -61,9 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const volumes = document.querySelectorAll(".volumes div");
   let currentThemeIndex = 0;
   let currentSoundIndex = 0;
-
   const clickSound = new Audio("click.wav");
   const hoverSound = new Audio("hover.wav");
+  const resultado20 = document.querySelector(".resultado20");
+  const resultado21 = document.querySelector(".resultado21");
+  const resultado22 = document.querySelector(".resultado22");
+  const closewin1 = document.getElementById("closewin1");
+  const closewin2 = document.getElementById("closewin2");
+  const closewin3 = document.getElementById("closewin3");
 
   function calcularJurosSimples() {
     let capital = parseFloat(document.getElementById("capital").value);
@@ -282,8 +286,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const resultado8 = document.getElementById("resultado8");
     resultado8.innerHTML = resultadoFinal;
-
-    resultado8.classList.remove("show0");
   }
 
   if (botaoCalcular1 && resultado8) {
@@ -456,6 +458,9 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
+      resultado20.classList.remove("show");
+      resultado21.classList.remove("show");
+      resultado22.classList.remove("show");
     });
   }
 
@@ -486,6 +491,9 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha9.classList.remove("show");
       incognitadescontos.classList.remove("show");
       incognita.classList.remove("show");
+      resultado20.classList.remove("show");
+      resultado21.classList.remove("show");
+      resultado22.classList.remove("show");
     });
   }
 
@@ -515,6 +523,9 @@ document.addEventListener("DOMContentLoaded", function () {
       botaoescolha9.classList.remove("show");
       incognitadescontos.classList.toggle("show");
       incognita.classList.toggle("show");
+      resultado20.classList.remove("show");
+      resultado21.classList.remove("show");
+      resultado22.classList.remove("show");
     });
   }
 
@@ -626,44 +637,70 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (botaoescolha7) {
+  if (botaoescolha7 && resultado20) {
     botaoescolha7.addEventListener("click", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
+      resultado20.classList.remove("show");
       conta8.classList.toggle("show");
     });
+    if (resultado20 && botaoCalcular1) {
+      botaoCalcular1.addEventListener("click", function () {
+        resultado20.classList.add("show");
+      });
+    }
+    if (closewin1) {
+      closewin1.addEventListener("click", function () {
+        resultado20.classList.remove("show");
+        resultado8.classList.remove("show");
+      });
+    }
   }
 
-  if (botaoescolha8) {
+  if (botaoescolha8 && resultado21) {
     botaoescolha8.addEventListener("click", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
+
+      resultado21.classList.remove("show");
       conta9.classList.toggle("show");
     });
+    if (resultado21 && botaoCalcular2) {
+      botaoCalcular2.addEventListener("click", function () {
+        resultado21.classList.add("show");
+      });
+    }
+    if (closewin2) {
+      closewin2.addEventListener("click", function () {
+        resultado21.classList.remove("show");
+        resultado9.classList.remove("show");
+      });
+    }
   }
 
-  if (botaoescolha9) {
+  if (botaoescolha9 && resultado22) {
     botaoescolha9.addEventListener("click", function () {
       botaoescolha7.classList.remove("show");
       botaoescolha8.classList.remove("show");
       botaoescolha9.classList.remove("show");
+
+      resultado22.classList.remove("show");
       conta10.classList.toggle("show");
     });
+    if (resultado22 && botaoCalcular3) {
+      botaoCalcular3.addEventListener("click", function () {
+        resultado22.classList.add("show");
+      });
+    }
+    if (closewin3) {
+      closewin3.addEventListener("click", function () {
+        resultado22.classList.remove("show");
+        resultado10.classList.remove("show");
+      });
+    }
   }
-
-  document.querySelectorAll(".calcular").forEach((calcular, index) => {
-    calcular.addEventListener("click", () => {
-      resultados[index].classList.remove("show0");
-    });
-  });
-
-  closewins.forEach((closewin, index) => {
-    closewin.addEventListener("click", () => {
-      resultados[index].classList.add("show0");
-    });
-  });
 
   if (icone_menu && menu) {
     icone_menu.addEventListener("click", function () {
