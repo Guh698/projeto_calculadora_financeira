@@ -59,9 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const temas = document.querySelectorAll(".temas div");
   const volumes = document.querySelectorAll(".volumes div");
   let currentThemeIndex = 0;
-  let currentSoundIndex = 0;
-  const clickSound = new Audio("click.wav");
-  const hoverSound = new Audio("hover.wav");
   const resultado20 = document.querySelector(".resultado20");
   const resultado21 = document.querySelector(".resultado21");
   const resultado22 = document.querySelector(".resultado22");
@@ -776,84 +773,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updateTheme();
-
-  function updateSounds() {
-    const SoundName = volumes[currentSoundIndex].getAttribute("data-sound");
-    isSoundEnabled = SoundName === "ativar";
-
-    volumes.forEach((sound) => sound.classList.remove("active"));
-    volumes[currentSoundIndex].classList.add("active");
-
-    const ativadoIcon = document.getElementById("ativado");
-    const desativadoIcon = document.getElementById("desativado");
-
-    if (isSoundEnabled) {
-      ativadoIcon.classList.add("show");
-      desativadoIcon.classList.remove("show");
-    } else {
-      ativadoIcon.classList.remove("show");
-      desativadoIcon.classList.add("show");
-    }
-
-    hoverSound.muted = !isSoundEnabled;
-    clickSound.muted = !isSoundEnabled;
-  }
-
-  arrowLeft3.addEventListener("click", () => {
-    currentSoundIndex =
-      (currentSoundIndex - 1 + volumes.length) % volumes.length;
-    updateSounds();
-  });
-
-  arrowRight3.addEventListener("click", () => {
-    currentSoundIndex = (currentSoundIndex + 1) % volumes.length;
-    updateSounds();
-  });
-
-  updateSounds();
-
-  document.getElementById("seletor1").addEventListener("mouseenter", () => {
-    hoverSound.currentTime = 0;
-    hoverSound.play();
-  });
-
-  document.getElementById("seletor2").addEventListener("mouseenter", () => {
-    hoverSound.currentTime = 0;
-    hoverSound.play();
-  });
-
-  document.getElementById("seletor3").addEventListener("mouseenter", () => {
-    hoverSound.currentTime = 0;
-    hoverSound.play();
-  });
-
-  arrowLeft.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-
-  arrowLeft2.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-
-  arrowLeft3.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-
-  arrowRight.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-
-  arrowRight2.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-
-  arrowRight3.addEventListener("click", () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
 });
