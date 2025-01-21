@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const addClickEvent = (element, handler) => {
+    if (element) element.addEventListener("click", handler);
+  };
   const forms = document.querySelector(".forms");
   const formulasnav = document.querySelector(".tabela_formulas");
   const tabela = document.querySelector(".formulas");
@@ -58,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const arrowRight3 = document.querySelector("#arrow-right3");
   const temas = document.querySelectorAll(".temas div");
   const volumes = document.querySelectorAll(".volumes div");
-  let currentThemeIndex = 0;
   const resultado20 = document.querySelector(".resultado20");
   const resultado21 = document.querySelector(".resultado21");
   const resultado22 = document.querySelector(".resultado22");
@@ -699,75 +701,69 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (icone_menu && menu) {
-    icone_menu.addEventListener("click", function () {
-      menu.classList.toggle("show");
-    });
-  }
+  // Menu Toggle
+  addClickEvent(icone_menu, () => menu?.classList.toggle("show"));
 
-  if (config_menu && config_option && overlay) {
-    config_option.addEventListener("click", function () {
-      config_menu.classList.add("show");
-      menu.classList.remove("show");
-      overlay.classList.toggle("active");
-    });
-  }
+  // Config Menu Toggle
+  addClickEvent(config_option, () => {
+    config_menu?.classList.add("show");
+    menu?.classList.remove("show");
+    overlay?.classList.add("active");
+  });
 
-  if (config_menu && close_config_menu && overlay) {
-    close_config_menu.addEventListener("click", function () {
-      config_menu.classList.remove("show");
-      overlay.classList.remove("active");
-    });
-  }
+  addClickEvent(close_config_menu, () => {
+    config_menu?.classList.remove("show");
+    overlay?.classList.remove("active");
+  });
 
-  let currentIndex = sizes.findIndex((size) =>
+  // Atualização de tamanho de fonte
+  let currentFontSizeIndex = sizes.findIndex((size) =>
     size.classList.contains("padrao")
   );
 
-  function updateFontSize() {
-    document.documentElement.classList.remove(
-      "pequeno",
-      "medio",
-      "padrao",
-      "grande"
-    );
+  const updateFontSize = () => {
+    const classes = ["pequeno", "medio", "padrao", "grande"];
+    const currentSize = sizes[currentFontSizeIndex]?.getAttribute("data-size");
 
-    const sizeName = sizes[currentIndex].getAttribute("data-size");
-    document.documentElement.classList.add(sizeName);
+    if (currentSize) {
+      document.documentElement.classList.remove(...classes);
+      document.documentElement.classList.add(currentSize);
+      sizes.forEach((size) => size.classList.remove("active"));
+      sizes[currentFontSizeIndex]?.classList.add("active");
+    }
+  };
 
-    sizes.forEach((size) => size.classList.remove("active"));
-    sizes[currentIndex].classList.add("active");
-  }
-
-  arrowLeft.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + sizes.length) % sizes.length;
+  addClickEvent(arrowLeft, () => {
+    currentFontSizeIndex =
+      (currentFontSizeIndex - 1 + sizes.length) % sizes.length;
     updateFontSize();
   });
 
-  arrowRight.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % sizes.length;
+  addClickEvent(arrowRight, () => {
+    currentFontSizeIndex = (currentFontSizeIndex + 1) % sizes.length;
     updateFontSize();
   });
 
   updateFontSize();
 
-  function updateTheme() {
-    document.documentElement.className = "";
-    document.documentElement.classList.remove("claro", "escuro");
+  // Atualização de tema
+  let currentThemeIndex = 0;
 
-    const themeName = temas[currentThemeIndex].getAttribute("data-theme");
-    document.documentElement.classList.add(themeName);
+  const updateTheme = () => {
+    const currentTheme = temas[currentThemeIndex]?.getAttribute("data-theme");
+    if (currentTheme) {
+      document.documentElement.className = currentTheme;
+      temas.forEach((theme) => theme.classList.remove("active"));
+      temas[currentThemeIndex]?.classList.add("active");
+    }
+  };
 
-    temas.forEach((theme) => theme.classList.remove("active"));
-    temas[currentThemeIndex].classList.add("active");
-  }
-
-  arrowLeft2.addEventListener("click", () => {
+  addClickEvent(arrowLeft2, () => {
     currentThemeIndex = (currentThemeIndex - 1 + temas.length) % temas.length;
     updateTheme();
   });
 
-  arrowRight2.addEventListener("click", () => {
+  addClickEvent(arrowRight2, () => {
     currentThemeIndex = (currentThemeIndex + 1) % temas.length;
     updateTheme();
   });
