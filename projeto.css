@@ -95,26 +95,36 @@ header .logo_ul {
 }
 
 header .logo_ul img {
-  position: absolute;
+  position: relative;
   width: 52px;
-  margin-top: -30px;
-  left: 10px;
+  margin-top: 10px;
+  margin-left: -50px;
+}
+
+.nav2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 header nav .forms {
+  position: relative;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: 0.3s linear;
+  margin-left: 0%;
+  transition: 0.2s linear;
   margin-top: 30px;
   cursor: pointer;
 }
 
 header nav .tabela_formulas {
+  position: relative;
+  margin-left: 0%;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: 0.3s linear;
+  transition: 0.2s linear;
   margin-top: 30px;
   cursor: pointer;
 }
@@ -124,11 +134,12 @@ header nav .tabela_formulas:hover {
 }
 
 header nav .incnav {
-  text-decoration: none;
   position: relative;
+  margin-left: 0%;
+  text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: 0.3s linear;
+  transition: 0.2s linear;
   margin-top: 30px;
   cursor: pointer;
 }
@@ -155,6 +166,42 @@ header nav a {
   font-size: 1rem;
   font-weight: bold;
   transition: 0.3s linear;
+}
+
+@keyframes animacao1 {
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes animacao2 {
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes animacao3 {
+  100% {
+    left: 10px;
+  }
+}
+
+@keyframes animacao4 {
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes animacao5 {
+  100% {
+    left: 95%;
+  }
+}
+
+@keyframes animacao6 {
+  100% {
+    left: 0%;
+  }
 }
 
 .conteudo {
@@ -193,6 +240,7 @@ header nav a {
   transition: 0.2s linear;
   visibility: hidden;
   opacity: 0;
+  z-index: 1000;
 }
 
 .menu_bar.show {
@@ -231,11 +279,8 @@ header nav a {
   width: 0%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
-  transition: 0.3s ease;
+  transition: 0.3s ease-in-out;
   opacity: 0;
-  visibility: hidden;
-  box-shadow: #fff 0px 0px 8px 0px;
-  filter: none;
   z-index: 20;
 }
 
@@ -531,9 +576,9 @@ html.grande {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease;
+
+  transition: opacity 0.3s ease;
 }
 
 .exemplo3 {
@@ -548,7 +593,8 @@ html.grande {
   gap: 20px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease;
+
+  transition: opacity 0.3s ease;
 }
 
 .text2 {
@@ -610,145 +656,6 @@ html.grande {
   background: white;
 }
 
-.sound_config {
-  height: 100%;
-  width: 100%;
-}
-
-.seletor_sound {
-  position: fixed;
-  top: 30%;
-  left: 10px;
-  font-size: 16px;
-  width: 30%;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border: 1px solid #ccc;
-  display: flex;
-  z-index: 1000;
-  transition: 0.1s ease-in;
-}
-
-#arrow-left3 {
-  position: absolute;
-  left: 50%;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.1s ease;
-  font-size: 20px;
-}
-
-#arrow-left3:hover {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-#arrow-left3:active {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-#arrow-right3 {
-  position: absolute;
-  left: 90%;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.1s ease;
-  font-size: 20px;
-}
-
-#arrow-right3:hover {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-#arrow-right3:active {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.seletor_sound:hover {
-  background: rgba(255, 255, 255, 0.3);
-  #setaho {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #arrow-left3 {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #arrow-right3 {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-.text3 {
-  cursor: pointer;
-}
-
-.seletor3 {
-  display: flex;
-  margin-left: 20%;
-  cursor: pointer;
-}
-
-.volumes {
-  position: fixed;
-  display: flex;
-  margin-left: 4%;
-}
-
-.volumes div {
-  opacity: 0;
-  position: absolute;
-  transition: opacity 0.3s;
-}
-
-.volumes div.active {
-  opacity: 1;
-  position: static;
-}
-
-.content3 {
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  visibility: hidden;
-  opacity: 0;
-  margin-left: 40%;
-  transition: visibility 0.3s, opacity 0.3s ease;
-  position: absolute;
-}
-
-#ativado,
-#desativado {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  margin-top: -10%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 80px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease;
-}
-
-#ativado.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-#desativado.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-.seletor_sound:hover ~ .content3 {
-  visibility: visible;
-  opacity: 1;
-}
-
 .grid-formulas {
   display: grid;
   grid-template-columns: 1fr;
@@ -759,7 +666,7 @@ html.grande {
   width: 90%;
   height: auto;
   color: #fff;
-  top: 10%;
+  top: -5%;
   left: 10%;
   line-height: 40px;
   font-weight: bold;
@@ -768,6 +675,7 @@ html.grande {
   cursor: default;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out visibility 0.3s;
 }
 
 .formulas::before,
@@ -794,6 +702,9 @@ html.grande {
     #001aff
   );
   background-size: 200%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   animation: border 12s linear infinite;
 }
 
@@ -802,6 +713,12 @@ html.grande {
 }
 
 .formulas.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.formulas.show::before,
+.formulas.show::after {
   visibility: visible;
   opacity: 1;
 }
@@ -816,7 +733,7 @@ html.grande {
   width: 90%;
   height: auto;
   color: #fff;
-  top: 40%;
+  top: 25%;
   left: 10%;
   line-height: 40px;
   font-weight: bold;
@@ -824,6 +741,7 @@ html.grande {
   border-radius: 3px;
   cursor: default;
   visibility: hidden;
+  transition: opacity 0.3s ease-in-out visibility 0.3s;
   opacity: 0;
 }
 
@@ -851,6 +769,8 @@ html.grande {
     #001aff
   );
   background-size: 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   animation: border 12s linear infinite;
 }
 
@@ -859,6 +779,12 @@ html.grande {
 }
 
 .formulas2.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.formulas2.show::before,
+.formulas2.show::after {
   visibility: visible;
   opacity: 1;
 }
@@ -900,7 +826,7 @@ html.grande {
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  transition: 0.2s ease;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .btn::before,
@@ -958,6 +884,7 @@ html.grande {
   cursor: default;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out visibility 0.3s;
 }
 
 .incognitas_juros::before,
@@ -984,6 +911,9 @@ html.grande {
     #001aff
   );
   background-size: 200%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
   animation: border 12s linear infinite;
 }
 
@@ -992,6 +922,12 @@ html.grande {
 }
 
 .incognitas_juros.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.incognitas_juros.show::before,
+.incognitas_juros.show::after {
   visibility: visible;
   opacity: 1;
 }
@@ -1015,6 +951,7 @@ html.grande {
   cursor: default;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out visibility 0.3s;
 }
 
 .incognitas_descontos::before,
@@ -1041,6 +978,9 @@ html.grande {
     #001aff
   );
   background-size: 200%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   animation: border 12s linear infinite;
 }
 
@@ -1049,6 +989,12 @@ html.grande {
 }
 
 .incognitas_descontos.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.incognitas_descontos.show::before,
+.incognitas_descontos.show::after {
   visibility: visible;
   opacity: 1;
 }
@@ -2367,12 +2313,6 @@ header footer a:hover {
     gap: 20px;
   }
 
-  header nav .logo_ul img {
-    margin-top: 10px;
-    position: relative;
-    width: 72px;
-  }
-
   .conteudo {
     width: 100%;
   }
@@ -2425,10 +2365,11 @@ header footer a:hover {
       background-color: blue;
     }
 
-    header nav img {
+    header .logo_ul img {
       position: relative;
-      margin-top: -35%;
-      width: 60px;
+      margin-top: -20px;
+      width: 62px;
+      left: 10px;
     }
 
     header nav .forms,
@@ -2439,8 +2380,9 @@ header footer a:hover {
 
     .forms {
       position: relative;
-      margin-top: 0%;
-      left: -90%;
+      margin-top: 15px;
+      left: -160%;
+      cursor: pointer;
     }
 
     .forms:hover {
@@ -2449,8 +2391,9 @@ header footer a:hover {
 
     .incnav {
       position: relative;
-      left: -36%;
-      margin-top: 0%;
+      margin-top: 15px;
+      left: -190%;
+      cursor: pointer;
     }
 
     .incnav:hover {
@@ -2459,8 +2402,9 @@ header footer a:hover {
 
     .tabela_formulas {
       position: relative;
-      left: -20%;
-      margin-top: 0%;
+      margin-top: 15px;
+      left: -110%;
+      cursor: pointer;
     }
 
     .tabela_formulas:hover {
@@ -2597,14 +2541,46 @@ header footer a:hover {
       visibility: visible;
       opacity: 1;
     }
+
+    .incnav {
+      position: relative;
+      margin-top: 30px;
+      left: -500%;
+      cursor: pointer;
+      animation: animacao3 1.75s 0.5s ease 1 forwards;
+    }
+
+    header .logo_ul img {
+      position: relative;
+      width: 72px;
+      left: -150px;
+      animation: animacao2 1.75s 2s ease 1 forwards;
+    }
+
+    .forms {
+      position: relative;
+      margin-top: 30px;
+      margin-left: -500%;
+      cursor: pointer;
+      animation: animacao1 2s 0.75s ease 1 forwards;
+    }
+
+    .tabela_formulas {
+      position: relative;
+      left: -500%;
+      cursor: pointer;
+      animation: animacao4 1.75s 0.5s ease 1 forwards;
+    }
   }
 
   .menu .bi-list {
     transition: 0.2s ease;
     top: 5%;
+    left: 110%;
     opacity: 1;
     visibility: visible;
     color: #fff;
+    animation: animacao5 1.75s 1.75s ease 1 forwards;
   }
 
   .menu_bar {
@@ -2651,11 +2627,11 @@ header footer a:hover {
     height: 7%;
     top: -2%;
     left: 35%;
-    transition: 0.3 ease;
+    transition: 0.2s ease;
   }
 
   .btn:hover {
-    top: calc(-2% - (-10px));
+    top: calc(-2% - (-5px));
   }
 
   .btn.show {
@@ -2871,10 +2847,16 @@ header footer a:hover {
   }
 }
 
+header footer {
+  position: absolute;
+  left: -180%;
+  animation: animacao6 2.75s 0.75s ease 1 forwards;
+}
+
 @media (min-width: 1548px) {
   header nav {
     gap: 40px;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   header nav .logo_ul img {
@@ -2902,7 +2884,7 @@ header footer a:hover {
     height: 50%;
     top: 20%;
     line-height: 60px;
-    font-size: 2.25rem;
+    font-size: 1.25rem;
   }
 
   .grid-formulas2 {
@@ -2916,7 +2898,7 @@ header footer a:hover {
     height: 50%;
     top: 20%;
     line-height: 60px;
-    font-size: 2.25rem;
+    font-size: 1.25rem;
   }
 
   .botao_formulas {
@@ -2930,14 +2912,20 @@ header footer a:hover {
   .btn {
     font-weight: bold;
     font-size: 1.25rem;
-    width: 80%;
-    height: 10%;
-    left: 10%;
+    width: 50%;
+    height: 7%;
+    left: 25%;
     top: 5%;
+    transition: 0.2s ease;
   }
 
   .btn:hover {
-    top: calc(5% - (-10px));
+    top: calc(5% - (-5px));
+  }
+
+  .menu .bi-list {
+    margin-top: -30px;
+    font-size: 3rem;
   }
 
   .container-grid {
@@ -3142,5 +3130,9 @@ header footer a:hover {
     font-size: 2.5rem;
     top: -28%;
     left: 193%;
+  }
+
+  header footer a {
+    font-size: 1.25rem;
   }
 }
